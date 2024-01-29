@@ -1,4 +1,4 @@
-Naziv aplikacije: MyPet
+Naziv aplikacije: My Pet
 
 Članovi tima: Martina Rubil
 
