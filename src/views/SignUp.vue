@@ -4,9 +4,9 @@
       <h2 style="font-weight: 600">Registracija</h2>
     </div>
     <div>
-      <img :src="require('@/assets/White_paw_print.png')" width="5%" />
+      <img :src="require('@/assets/White_paw_print.png')" width="10%" />
 
-      <p style="font-size: x-small"><br /><b>MyPet</b></p>
+      <p style="font-size: small"><br /><b>MyPet</b></p>
     </div>
     <div class="SignUp">
       <form>
