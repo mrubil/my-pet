@@ -26,7 +26,7 @@
   padding: 10px;
   border: none;
   text-decoration: none;
-  width: 200px;
+  width: 180px;
   font-weight: 600;
 }
 .button-registracija {
@@ -37,7 +37,7 @@
   padding: 10px;
   border: none;
   text-decoration: none;
-  width: 200px;
+  width: 180px;
   font-weight: 600;
 }
 </style>

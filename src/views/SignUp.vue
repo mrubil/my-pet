@@ -1,7 +1,12 @@
 <template>
   <body>
     <div class="Zaglavlje">
-      <h2>Registracija</h2>
+      <h2 style="font-weight: 600">Registracija</h2>
+    </div>
+    <div>
+      <img :src="require('@/assets/White_paw_print.png')" width="5%" />
+
+      <p style="font-size: x-small"><br /><b>MyPet</b></p>
     </div>
     <div class="SignUp">
       <form>
@@ -35,7 +40,9 @@
           />
         </div>
 
-        <button type="submit" class="button-Registracija">Submit</button>
+        <button type="submit" class="button-Registracija">
+          Registriraj se
+        </button>
       </form>
     </div>
   </body>
@@ -45,25 +52,35 @@
 body {
   background: #ff344c;
 }
+
 .Zaglavlje {
   background: white;
   padding: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  margin-bottom: 5%;
 }
 .button-Registracija {
   background-color: black;
   color: white;
   margin-bottom: 10%;
+  margin-top: 5%;
   border-radius: 20px;
   padding: 10px;
   border: none;
   text-decoration: none;
-  width: 200px;
+  width: 180px;
   font-weight: 600;
 }
 .SignUp {
   width: 300px;
   margin: 0 auto;
+}
+.form-control {
+  margin-bottom: 5%;
+  border-radius: 20px;
+}
+.form-group {
+  text-align: left;
 }
 </style>
