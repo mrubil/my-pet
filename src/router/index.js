@@ -1,5 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Login from "../views/Login.vue";
+import SignUp from "../views/SignUp.vue";
+import LandingPage from "../views/LandingPage.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +18,12 @@ const routes = [
     name: "SignUp",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/SignUp.vue"),
+  },
+  {
+    path: "/LandingPage",
+    name: "LandingPage",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/LandingPage.vue"),
   },
 ];
 
