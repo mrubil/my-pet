@@ -14,6 +14,7 @@
           <label for="exampleInputEmail1" style="color: white">Email</label>
           <input
             type="email"
+            v-model="username"
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
@@ -25,6 +26,7 @@
           >
           <input
             type="password"
+            v-model="password"
             class="form-control"
             id="exampleInputPassword1"
           />
@@ -35,18 +37,48 @@
           >
           <input
             type="password"
+            v-model="passwordRepeat"
             class="form-control"
-            id="exampleInputPassword1"
+            id="exampleInputPassword2"
           />
         </div>
 
-        <button type="submit" class="button-Registracija">
+        <button type="button" @click="signup" class="button-Registracija">
           Registriraj se
         </button>
       </form>
     </div>
   </body>
 </template>
+
+<script>
+import { firebase } from "@/firebase";
+
+export default {
+  name: "signup",
+  data() {
+    return {
+      username: "",
+      password: "",
+      passwordRepeat: "",
+    };
+  },
+
+  methods: {
+    signup() {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.username, this.password)
+        .then(function () {
+          console.log("Uspješna registracija");
+        })
+        .catch(function () {
+          console.error("Došlo je do greške", error);
+        });
+    },
+  },
+};
+</script>
 
 <style>
 body {
