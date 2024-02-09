@@ -1,6 +1,12 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <LandingPage />
+  </div>
 </template>
+
+<script setup>
+import LandingPage from "./components/LandingPage.vue";
+</script>
 
 <style lang="scss">
 #app {
