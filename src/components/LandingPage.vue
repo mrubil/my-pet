@@ -13,6 +13,7 @@
     <button class="button-registracija" @click="$router.push('SignUp')">
       Registracija
     </button>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -22,14 +23,20 @@
   color: black;
   margin-top: 5%;
   margin-bottom: 10px;
-  border-radius: 20%;
+  border-radius: 20px;
   padding: 10px;
+  border: none;
+  text-decoration: none;
+  width: 200px;
 }
 .button-registracija {
   background-color: black;
   color: white;
   margin-bottom: 10%;
-  border-radius: 20%;
+  border-radius: 20px;
   padding: 10px;
+  border: none;
+  text-decoration: none;
+  width: 200px;
 }
 </style>
