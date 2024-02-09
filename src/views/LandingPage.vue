@@ -13,7 +13,6 @@
     <button class="button-registracija" @click="$router.push('SignUp')">
       Registracija
     </button>
-    <router-view></router-view>
   </div>
 </template>
 
