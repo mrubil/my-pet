@@ -1,10 +1,10 @@
 <template>
-  <div class="LandingPage">
-    <h1>Dobrodošli na</h1>
+  <div class="LandingPage" style="padding-top: 15%">
+    <h1 style="font-weight: 600">Dobrodošli na</h1>
     <br />
     <img :src="require('@/assets/White_paw_print.png')" width="30%" />
 
-    <h1><br />MyPet</h1>
+    <h1><br /><b>MyPet</b></h1>
     <br />
     <button class="button-prijava" @click="$router.push('Login')">
       Prijava
@@ -28,6 +28,7 @@
   border: none;
   text-decoration: none;
   width: 200px;
+  font-weight: 600;
 }
 .button-registracija {
   background-color: black;
@@ -38,5 +39,6 @@
   border: none;
   text-decoration: none;
   width: 200px;
+  font-weight: 600;
 }
 </style>
