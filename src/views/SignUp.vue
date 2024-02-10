@@ -73,8 +73,9 @@ export default {
           console.log("Uspješna registracija");
         })
         .catch(function () {
-          console.error("Došlo je do greške", error);
+          console.error("Došlo je do greške");
         });
+      console.log("Nastavak");
     },
   },
 };

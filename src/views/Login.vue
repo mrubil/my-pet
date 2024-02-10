@@ -14,6 +14,7 @@
           <label for="exampleInputEmail1" style="color: white">Email</label>
           <input
             type="email"
+            v-model="username"
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
@@ -25,15 +26,46 @@
           >
           <input
             type="password"
+            v-model="password"
             class="form-control"
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" class="button-Prijava">Prijava</button>
+        <button type="button" @click="login()" class="button-Prijava">
+          Prijava
+        </button>
       </form>
     </div>
   </body>
 </template>
+
+<script>
+import { firebase } from "@/firebase";
+
+export default {
+  name: "login",
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+  methods: {
+    login() {
+      console.log("login..." + this.username);
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.username, this.password)
+        .then(function (result) {
+          console.log("Uspješna prijava", result);
+        })
+        .catch(function (e) {
+          console.error("Greška", e);
+        });
+    },
+  },
+};
+</script>
 
 <style>
 body {
