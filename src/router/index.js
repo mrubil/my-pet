@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import SignUp from "../views/SignUp.vue";
 import LandingPage from "../views/LandingPage.vue";
+import MyProfile from "../views/MyProfile.vue";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,12 @@ const routes = [
     name: "LandingPage",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/LandingPage.vue"),
+  },
+  {
+    path: "/MyProfile",
+    name: "MyProfile",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/MyProfile.vue"),
   },
 ];
 
