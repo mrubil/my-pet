@@ -6,8 +6,8 @@
       <div class="Ime">Ime ljubimca</div>
       <div class="Info">Informacije o ljubimcu</div>
     </div>
-    <div class="TijeloProfila">
-      Nadolazeće aktivnosti
+    <div class="Tijelo">
+      <p class="N" style="text-align: left">Nadolazeće aktivnosti</p>
       <UpcomingTask />
     </div>
     <Navigacija />
@@ -48,5 +48,9 @@ export default {
 }
 .Informacije {
   padding: 10px;
+}
+p.N {
+  padding-left: 5%;
+  color: white;
 }
 </style>
