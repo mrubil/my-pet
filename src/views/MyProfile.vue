@@ -6,26 +6,25 @@
       <div class="Ime">Ime ljubimca</div>
       <div class="Info">Informacije o ljubimcu</div>
     </div>
-    <div class="TijeloProfila"></div>
-    <nav class="navbar fixed-bottom navbar-light bg-light rounded-top-4">
-      <a class="navbar-brand position-absolute" href="#"></a>
-      <div class="mx-auto">
-        <router-link to="/Tasks.vue"
-          ><img :src="require('@/assets/Tasks.png')" width="5%"
-        /></router-link>
-        <router-link to="/Kalendar.vue"
-          ><img :src="require('@/assets/Kalendar.png')" width="5%"
-        /></router-link>
-        <router-link to="/NewTask.vue"
-          ><img :src="require('@/assets/NewTask.png')" width="5%"
-        /></router-link>
-        <router-link to="/MyProfile.vue"
-          ><img :src="require('@/assets/MojProfil.png')" width="5%"
-        /></router-link>
-      </div>
-    </nav>
+    <div class="TijeloProfila">
+      Nadolazeće aktivnosti
+      <UpcomingTask />
+    </div>
+    <Navigacija />
   </body>
 </template>
+<script>
+import UpcomingTask from "@/components/UpcomingTask.vue";
+import Navigacija from "@/components/Navigacija.vue";
+
+export default {
+  name: "MyProfile",
+  components: {
+    UpcomingTask,
+    Navigacija,
+  },
+};
+</script>
 
 <style>
 .body {
