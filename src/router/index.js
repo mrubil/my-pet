@@ -4,6 +4,7 @@ import Login from "../views/Login.vue";
 import SignUp from "../views/SignUp.vue";
 import LandingPage from "../views/LandingPage.vue";
 import MyProfile from "../views/MyProfile.vue";
+import Kalendar from "../views/Kalendar.vue";
 
 Vue.use(VueRouter);
 

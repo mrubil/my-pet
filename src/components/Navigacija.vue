@@ -2,17 +2,17 @@
   <nav class="navbar fixed-bottom navbar-light bg-light rounded-top-4">
     <a class="navbar-brand position-absolute" href="#"></a>
     <div class="mx-auto">
-      <router-link to="/Tasks.vue"
+      <router-link to="/Tasks"
         ><img :src="require('@/assets/Tasks.png')" width="5%"
       /></router-link>
 
-      <router-link to="/Kalendar.vue"
+      <router-link to="/Kalendar"
         ><img :src="require('@/assets/Kalendar.png')" width="5%"
       /></router-link>
-      <router-link to="/NewTask.vue"
+      <router-link to="/NewTask"
         ><img :src="require('@/assets/NewTask.png')" width="5%"
       /></router-link>
-      <router-link to="/MyProfile.vue"
+      <router-link to="/MyProfile"
         ><img :src="require('@/assets/MojProfil.png')" width="5%"
       /></router-link>
     </div>
