@@ -6,6 +6,10 @@
       <div class="Ime">Ime ljubimca</div>
       <div class="Info">Informacije o ljubimcu</div>
     </div>
+    <div class="TijeloProfila"></div>
+    <nav class="navbar fixed-bottom navbar-light bg-light rounded-top-4">
+      <a class="navbar-brand" href="#">Navigacijska traka</a>
+    </nav>
   </body>
 </template>
 
