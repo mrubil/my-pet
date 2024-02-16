@@ -32,6 +32,24 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/MyProfile.vue"),
   },
+  {
+    path: "/Kalendar",
+    name: "Kalendar",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Kalendar.vue"),
+  },
+  {
+    path: "/Tasks",
+    name: "Tasks",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Tasks.vue"),
+  },
+  {
+    path: "/NewTask",
+    name: "NewTask",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/NewTask.vue"),
+  },
 ];
 
 const router = new VueRouter({
