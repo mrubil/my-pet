@@ -2,10 +2,17 @@
   <body>
     <div class="ZaglavljeProfila">
       <div class="Odjava">
-        <img :src="require('@/assets/exit.png')" width="5%" />
+        <img :src="require('@/assets/exit.png')" width="20vw" />
       </div>
-      <div class="SlikaProfila">Ovdje ide slika profila</div>
-      <div class="Ime">Ime ljubimca i gumb za uređivanje</div>
+      <div class="SlikaProfila">
+        <img
+          class="rounded-circle object-fit-cover"
+          :src="require('@/assets/profilna.jpg')"
+          height="70vw"
+          width="70vw"
+        />
+      </div>
+      <div class="Ime">Juice</div>
       <div class="Info">Informacije o ljubimcu</div>
     </div>
     <div class="Tijelo">
@@ -46,6 +53,7 @@ export default {
 .SlikaProfila {
   padding: 10px;
 }
+
 .Ime {
   padding: 10px;
 }
