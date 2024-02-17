@@ -1,9 +1,11 @@
 <template>
   <body>
     <div class="ZaglavljeProfila">
-      <div class="Odjava">Odjava</div>
+      <div class="Odjava">
+        <img :src="require('@/assets/exit.png')" width="5%" />
+      </div>
       <div class="SlikaProfila">Ovdje ide slika profila</div>
-      <div class="Ime">Ime ljubimca</div>
+      <div class="Ime">Ime ljubimca i gumb za uređivanje</div>
       <div class="Info">Informacije o ljubimcu</div>
     </div>
     <div class="Tijelo">
@@ -19,6 +21,7 @@ import Navigacija from "@/components/Navigacija.vue";
 
 export default {
   name: "MyProfile",
+
   components: {
     UpcomingTask,
     Navigacija,
