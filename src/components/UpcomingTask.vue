@@ -1,9 +1,13 @@
 <template>
   <div class="card mx-auto rounded-4" style="width: 90%">
     <div class="card-body">
-      <h4 class="card-title">Naziv aktivnosti</h4>
-
-      <p class="card-text">Vrijeme i datum</p>
+      <div class="container">
+        <div class="row">
+          <div class="card-title col">Naziv aktivnosti</div>
+          <div class="col" style="color: #ff344c">Time</div>
+          <div class="col" style="color: #ff344c">Date</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -13,3 +17,9 @@ export default {
   name: "UpcomingTask",
 };
 </script>
+
+<style>
+.container {
+  font-weight: 600;
+}
+</style>

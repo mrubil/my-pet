@@ -38,7 +38,7 @@ export default {
   margin-bottom: 5%;
 }
 .Odjava {
-  padding: 5px;
+  text-align: right;
 }
 .SlikaProfila {
   padding: 10px;
