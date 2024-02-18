@@ -12,10 +12,26 @@
           width="70vw"
         />
       </div>
-      <div class="Ime">Juice</div>
-      <div class="Info">Informacije o ljubimcu</div>
+      <div class="Ime" style="font-weight: bolder">Juice</div>
+      <div class="mx-auto" id="Informacije">
+        <div class="row justify-content-md-center">
+          <div class="col-5 col-sm-4 col-lg-5">
+            <div class="row justify-content-center">Vrsta</div>
+            <div class="row justify-content-center">Ragdoll</div>
+          </div>
+          <div class="col-2 col-sm-4 col-lg-2">
+            <div class="row justify-content-center">Spol</div>
+            <div class="row justify-content-center">Ž</div>
+          </div>
+          <div class="col-5 col-sm-4 col-lg-5">
+            <div class="row justify-content-center">Starost</div>
+            <div class="row justify-content-center">2y</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="Tijelo">
+      <Mape />
       <p class="N" style="text-align: left">Nadolazeće aktivnosti</p>
       <UpcomingTask />
     </div>
@@ -25,6 +41,7 @@
 <script>
 import UpcomingTask from "@/components/UpcomingTask.vue";
 import Navigacija from "@/components/Navigacija.vue";
+import Mape from "@/components/Mape.vue";
 
 export default {
   name: "MyProfile",
@@ -32,6 +49,7 @@ export default {
   components: {
     UpcomingTask,
     Navigacija,
+    Mape,
   },
 };
 </script>
@@ -51,17 +69,22 @@ export default {
   text-align: right;
 }
 .SlikaProfila {
-  padding: 10px;
+  padding: 5px;
 }
 
 .Ime {
-  padding: 10px;
+  padding: 5px;
 }
-.Informacije {
-  padding: 10px;
+#Informacije {
+  padding: 5px;
+  margin-right: 1rem;
+  font-size: 12px;
+  font-weight: bold;
 }
 p.N {
   padding-left: 5%;
+  padding-top: 5px;
   color: white;
+  font-size: 14px;
 }
 </style>
