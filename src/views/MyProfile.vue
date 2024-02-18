@@ -13,7 +13,7 @@
         />
       </div>
       <div class="Ime" style="font-weight: bolder">Juice</div>
-      <div class="mx-auto" id="Informacije">
+      <div class="mx-auto px-5" id="Informacije">
         <div class="row justify-content-md-center">
           <div class="col-5 col-sm-4 col-lg-5">
             <div class="row justify-content-center">Vrsta</div>
@@ -31,7 +31,8 @@
       </div>
     </div>
     <div class="Tijelo">
-      <Mape />
+      <div><Mape /></div>
+
       <p class="N" style="text-align: left">Nadolazeće aktivnosti</p>
       <UpcomingTask />
     </div>
@@ -39,17 +40,17 @@
   </body>
 </template>
 <script>
+import Mape from "@/components/Mape.vue";
 import UpcomingTask from "@/components/UpcomingTask.vue";
 import Navigacija from "@/components/Navigacija.vue";
-import Mape from "@/components/Mape.vue";
 
 export default {
   name: "MyProfile",
 
   components: {
+    Mape,
     UpcomingTask,
     Navigacija,
-    Mape,
   },
 };
 </script>
