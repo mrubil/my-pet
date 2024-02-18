@@ -1,6 +1,8 @@
 <template>
   <body>
-    <div class="Zaglavlje">Kalendar</div>
+    <div class="Zaglavlje">
+      <h2 style="font-weight: 600">Kalendar</h2>
+    </div>
     Gdje je tekst??
     <Navigacija />
   </body>

@@ -1,8 +1,8 @@
 <template>
-  <div class="LandingPage" style="padding-top: 15%">
+  <div class="LandingPage" style="padding-top: 10%">
     <h1 style="font-weight: 600">Dobrodošli na</h1>
     <br />
-    <img :src="require('@/assets/White_paw_print.png')" width="30%" />
+    <img :src="require('@/assets/White_paw_print.png')" width="200vw" />
 
     <h1><br /><b>MyPet</b></h1>
     <br />

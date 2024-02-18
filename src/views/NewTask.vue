@@ -1,6 +1,8 @@
 <template>
   <body>
-    <div class="Zaglavlje">Nova aktivnost</div>
+    <div class="Zaglavlje">
+      <h2 style="font-weight: 600">Nova aktivnost</h2>
+    </div>
     Gdje je tekst??
     <Navigacija />
   </body>

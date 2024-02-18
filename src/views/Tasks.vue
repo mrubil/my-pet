@@ -1,6 +1,8 @@
 <template>
   <body>
-    <div class="Zaglavlje">Današnje aktivnosti</div>
+    <div class="Zaglavlje">
+      <h2 style="font-weight: 600">Današnje aktivnosti</h2>
+    </div>
     Gdje je tekst??
     <Navigacija />
   </body>
