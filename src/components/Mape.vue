@@ -2,11 +2,19 @@
   <div class="wrapper">
     <div>
       <router-link to="/Tasks"
-        ><img :src="require('@/assets/Zdravlje.png')" width="5%"
+        ><img :src="require('@/assets/Zdravlje.png')" width="70vw"
       /></router-link>
     </div>
-    <div>Two</div>
-    <div>Three</div>
+    <div>
+      <router-link to="/Tasks"
+        ><img :src="require('@/assets/Prehrana.jpg')" width="70vw"
+      /></router-link>
+    </div>
+    <div>
+      <router-link to="/Tasks"
+        ><img :src="require('@/assets/Aktivnosti.png')" width="70vw"
+      /></router-link>
+    </div>
   </div>
 </template>
 
@@ -40,5 +48,10 @@ export default {
 }
 .wrapper > div {
   background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

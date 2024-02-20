@@ -30,7 +30,6 @@
         </div>
       </div>
     </div>
-
     <div class="Tijelo">
       <Mape />
 
