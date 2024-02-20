@@ -1,16 +1,12 @@
 <template>
-  <div class="row mx-auto" id="Mapa">
-    <div class="col-4 col-sm-4 col-lg-4" id="Zdravlje">
-      <img :src="require('@/assets/Zdravlje.png')" width="100vw" />
+  <div class="wrapper">
+    <div>
+      <router-link to="/Tasks"
+        ><img :src="require('@/assets/Zdravlje.png')" width="5%"
+      /></router-link>
     </div>
-
-    <div class="col-4 col-sm-4 col-lg-4" id="Prehrana">
-      <img :src="require('@/assets/Prehrana.jpg')" width="100vw" />
-    </div>
-
-    <div class="col-4 col-sm-4 col-lg-4" id="Prehrana">
-      <img :src="require('@/assets/Aktivnosti.png')" width="100vw" />
-    </div>
+    <div>Two</div>
+    <div>Three</div>
   </div>
 </template>
 
@@ -21,11 +17,6 @@ export default {
 </script>
 
 <style>
-#Mapa {
-  padding-left: 5%;
-  padding-right: 5%;
-  column-gap: auto;
-}
 #Prehrana {
   background: white;
   border-radius: 10px;
@@ -37,5 +28,17 @@ export default {
 #Aktivnost {
   background: white;
   border-radius: 10px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  grid-auto-rows: 80px;
+  grid-auto-flow: dense;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.wrapper > div {
+  background-color: white;
 }
 </style>

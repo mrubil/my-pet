@@ -30,8 +30,9 @@
         </div>
       </div>
     </div>
+
     <div class="Tijelo">
-      <div><Mape /></div>
+      <Mape />
 
       <p class="N" style="text-align: left">Nadolazeće aktivnosti</p>
       <UpcomingTask />
