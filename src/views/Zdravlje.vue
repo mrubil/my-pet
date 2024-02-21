@@ -1,9 +1,9 @@
 <template>
   <body>
     <div class="Zaglavlje">
-      <h2 style="font-weight: 600">Kalendar</h2>
+      <h2 style="font-weight: 600">Zdravlje</h2>
     </div>
-    Gdje je tekst??
+
     <Navigacija />
   </body>
 </template>
@@ -12,7 +12,7 @@
 import Navigacija from "@/components/Navigacija.vue";
 
 export default {
-  name: "Kalendar",
+  name: "Zdravlje",
   components: {
     Navigacija,
   },
