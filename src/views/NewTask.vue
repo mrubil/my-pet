@@ -9,8 +9,8 @@
           <label for="name" style="padding-bottom: 5px">Naziv</label>
           <input type="name" class="form-control" id="name" />
         </div>
-        <div class="col-md-4">
-          <label for="inputActivityName" class="form-label"
+        <div class="col-md-4 form-group">
+          <label for="inputActivityName" style="padding-bottom: 5px"
             >Vrsta aktivnosti</label
           >
           <select id="inputActivityName" class="form-select">
@@ -20,6 +20,7 @@
             <option>Aktivnost</option>
           </select>
         </div>
+
         <button type="button" class="button-Gotovo">Gotovo</button>
       </form>
     </div>
@@ -63,5 +64,8 @@ export default {
   text-decoration: none;
   width: 120px;
   font-weight: 600;
+}
+.form-select {
+  border-radius: 20px;
 }
 </style>
