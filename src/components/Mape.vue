@@ -1,17 +1,17 @@
 <template>
   <div class="wrapper">
     <div>
-      <router-link to="/Tasks"
+      <router-link to="/Zdravlje"
         ><img :src="require('@/assets/Zdravlje.png')" width="70vw"
       /></router-link>
     </div>
     <div>
-      <router-link to="/Tasks"
+      <router-link to="/Prehrana"
         ><img :src="require('@/assets/Prehrana.jpg')" width="70vw"
       /></router-link>
     </div>
     <div>
-      <router-link to="/Tasks"
+      <router-link to="/Aktivnosti"
         ><img :src="require('@/assets/Aktivnosti.png')" width="70vw"
       /></router-link>
     </div>
