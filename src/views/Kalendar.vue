@@ -19,6 +19,22 @@ export default {
   components: {
     Navigacija,
   },
+  methods: {
+    todaysDate() {
+      let today = new Date();
+      let formatter = new Intl.DateTimeFormat("en-us", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+      });
+    },
+    previousDate() {
+      today = today.setDate(today.getDate() - 1);
+    },
+    nextDate() {
+      today = today.setDate(today.getDate() + 1);
+    },
+  },
 };
 </script>
 
