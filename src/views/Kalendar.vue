@@ -3,7 +3,10 @@
     <div class="Zaglavlje">
       <h2 style="font-weight: 600">Kalendar</h2>
     </div>
-    Gdje je tekst??
+
+    <img :src="require('@/assets/left_arrow.png')" width="20vw" />
+    Današnji datum
+    <img :src="require('@/assets/right_arrow.png')" width="20vw" />
     <Navigacija />
   </body>
 </template>
