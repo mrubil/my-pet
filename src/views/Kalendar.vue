@@ -3,10 +3,18 @@
     <div class="Zaglavlje">
       <h2 style="font-weight: 600">Kalendar</h2>
     </div>
+    <div class="lijeva_strelica">
+      <span @click="previousDate">
+        <img :src="require('@/assets/left_arrow.png')" width="20vw" />
+      </span>
+    </div>
+    <div style="color: white">{{ formatirani_datum }}</div>
 
-    <img :src="require('@/assets/left_arrow.png')" width="20vw" />
-    {{ formatirani_datum }}
-    <img :src="require('@/assets/right_arrow.png')" width="20vw" />
+    <div class="desna_strelica">
+      <span @click="previousDate">
+        <img :src="require('@/assets/right_arrow.png')" width="20vw" />
+      </span>
+    </div>
 
     <Navigacija />
   </body>
@@ -32,13 +40,15 @@ export default {
     },
   },
   methods: {
-    previousDate() {
-      let a = this.todaysDate();
-      a = a.setDate(a.getDate() - 1);
+    async previousDate() {
+      const jucer = new Date(this.danasnji_datum); //promijeni naziv u trenutni
+      jucer.setDate(jucer.getDate() - 1);
+      this.danasnji_datum = jucer;
     },
-    nextDate() {
-      let b = this.todaysDate();
-      b = b.setDate(b.getDate() + 1);
+    async nextDate() {
+      const sutra = new Date(this.danasnji_datum); //promijeni naziv u trenutni
+      sutra.setDate(sutra.getDate() + 1);
+      this.danasnji_datum = sutra;
     },
   },
 };
@@ -51,5 +61,11 @@ export default {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 5%;
+}
+.lijeva_strelica {
+  cursor: pointer;
+}
+.desna_strelica {
+  cursor: pointer;
 }
 </style>
