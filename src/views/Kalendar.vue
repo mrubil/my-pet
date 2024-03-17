@@ -4,8 +4,14 @@
       <h2 style="font-weight: 600">Kalendar</h2>
     </div>
 
-    <img :src="require('@/assets/left_arrow.png')" width="20vw" />
-    Današnji datum
+    <img
+      :src="require('@/assets/left_arrow.png')"
+      width="20vw"
+      onclick="previousDate()"
+    />
+
+    <span id="danas">{{ todaysDate() }}</span>
+
     <img :src="require('@/assets/right_arrow.png')" width="20vw" />
     <Navigacija />
   </body>
@@ -19,20 +25,19 @@ export default {
   components: {
     Navigacija,
   },
+
   methods: {
     todaysDate() {
-      let today = new Date();
-      let formatter = new Intl.DateTimeFormat("en-us", {
-        year: "numeric",
-        month: "numeric",
-        day: "numeric",
-      });
+      let today = new Date().toLocaleDateString();
+      return today;
     },
     previousDate() {
-      today = today.setDate(today.getDate() - 1);
+      let a = this.todaysDate();
+      a = a.setDate(a.getDate() - 1);
     },
     nextDate() {
-      today = today.setDate(today.getDate() + 1);
+      let b = this.todaysDate();
+      b = b.setDate(b.getDate() + 1);
     },
   },
 };
