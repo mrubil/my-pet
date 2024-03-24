@@ -4,7 +4,23 @@
   </div>
 </template>
 
-<script setup></script>
+<script>
+import { firebase } from "@/firebase";
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    //korisnik je ulogiran.
+    console.log(user.email);
+  } else {
+    //korisnik nije ulogiran
+    console.log("Nema korisnika");
+  }
+});
+
+export default {
+  name: "app",
+};
+</script>
 
 <style lang="scss">
 #app {

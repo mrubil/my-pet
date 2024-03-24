@@ -2,7 +2,9 @@
   <body>
     <div class="ZaglavljeProfila">
       <div class="Odjava">
-        <img :src="require('@/assets/exit.png')" width="20vw" />
+        <span @click="logout()"
+          ><img :src="require('@/assets/exit.png')" width="20vw"
+        /></span>
       </div>
       <div class="SlikaProfila">
         <img
@@ -43,10 +45,19 @@
 import Mape from "@/components/Mape.vue";
 import UpcomingTask from "@/components/UpcomingTask.vue";
 import Navigacija from "@/components/Navigacija.vue";
-
+import { firebase } from "@/firebase";
 export default {
   name: "MyProfile",
-
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push({ name: "LandingPage" });
+        });
+    },
+  },
   components: {
     Mape,
     UpcomingTask,
@@ -68,6 +79,7 @@ export default {
 }
 .Odjava {
   text-align: right;
+  cursor: pointer;
 }
 .SlikaProfila {
   padding: 5px;

@@ -41,6 +41,7 @@
 
 <script>
 import { firebase } from "@/firebase";
+import MyProfile from "./MyProfile.vue";
 
 export default {
   name: "login",
@@ -56,8 +57,9 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.username, this.password)
-        .then(function (result) {
+        .then((result) => {
           console.log("Uspješna prijava", result);
+          this.$router.replace({ name: "MyProfile" });
         })
         .catch(function (e) {
           console.error("Greška", e);
