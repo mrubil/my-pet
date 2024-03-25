@@ -49,5 +49,6 @@ export default {
   text-align: center;
   color: #000000;
   background: #ff344c;
+  height: 100vh;
 }
 </style>

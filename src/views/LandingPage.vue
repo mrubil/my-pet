@@ -1,19 +1,21 @@
 <template>
-  <div class="LandingPage" style="padding-top: 10%">
-    <h1 style="font-weight: 600">Dobrodošli na</h1>
-    <br />
-    <img :src="require('@/assets/White_paw_print.png')" width="200vw" />
+  <body>
+    <div class="LandingPage" style="padding-top: 10%">
+      <h1 style="font-weight: 600">Dobrodošli na</h1>
+      <br />
+      <img :src="require('@/assets/White_paw_print.png')" width="200vw" />
 
-    <h1><br /><b>MyPet</b></h1>
-    <br />
-    <button class="button-prijava" @click="$router.push('Login')">
-      Prijava
-    </button>
-    <br />
-    <button class="button-registracija" @click="$router.push('SignUp')">
-      Registracija
-    </button>
-  </div>
+      <h1><br /><b>MyPet</b></h1>
+      <br />
+      <button class="button-prijava" @click="$router.push('Login')">
+        Prijava
+      </button>
+      <br />
+      <button class="button-registracija" @click="$router.push('SignUp')">
+        Registracija
+      </button>
+    </div>
+  </body>
 </template>
 
 <style scoped>
@@ -39,5 +41,8 @@
   text-decoration: none;
   width: 180px;
   font-weight: 600;
+}
+body {
+  background: #ff344c;
 }
 </style>

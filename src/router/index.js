@@ -86,6 +86,15 @@ const routes = [
       needsUser: true,
     },
   },
+  {
+    path: "/Registracija",
+    name: "Registracija",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Registracija.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
 ];
 
 const router = new VueRouter({
