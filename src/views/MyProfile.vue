@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style>
-.body {
+body {
   background: #ff344c;
 }
 .ZaglavljeProfila {

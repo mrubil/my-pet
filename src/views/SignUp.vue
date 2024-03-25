@@ -53,6 +53,7 @@
 
 <script>
 import { firebase } from "@/firebase";
+import router from "@/router";
 
 export default {
   name: "signup",
@@ -71,6 +72,7 @@ export default {
         .createUserWithEmailAndPassword(this.username, this.password)
         .then(function () {
           console.log("Uspješna registracija");
+          router.push({ name: "RegistracijskaForma" });
         })
         .catch(function () {
           console.error("Došlo je do greške");

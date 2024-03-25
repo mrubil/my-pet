@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style>
-.ZAglavlje {
+.Zaglavlje {
   background: white;
   padding: 20px;
   border-bottom-left-radius: 20px;
