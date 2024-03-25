@@ -33,7 +33,11 @@
         <div class="Slika">
           Učitaj profilnu sliku
           <div class="Upload">
-            <img class="square" :src="require('@/assets/Camera.png')" />
+            <img
+              class="square"
+              :src="require('@/assets/Camera.png')"
+              height="70vw"
+            />
           </div>
         </div>
         <button type="button" class="button-done">Spremi</button>
@@ -83,5 +87,9 @@ body {
   padding: 10px;
   margin-top: 10px;
   background: white;
+  width: 25vw;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
