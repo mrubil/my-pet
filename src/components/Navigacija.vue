@@ -1,22 +1,30 @@
 <template>
   <nav class="navbar fixed-bottom navbar-light bg-light rounded-top-4">
     <a class="navbar-brand position-absolute" href="#"></a>
-    <div class="mx-auto">
-      <router-link to="/Tasks"
-        ><img :src="require('@/assets/Tasks.png')" width="5%"
-      /></router-link>
+    <div class="container">
+      <div class="col">
+        <router-link to="/Tasks"
+          ><img :src="require('@/assets/Tasks.png')" width="40px"
+        /></router-link>
+      </div>
 
-      <router-link to="/Kalendar"
-        ><img :src="require('@/assets/Kalendar.png')" width="5%"
-      /></router-link>
+      <div class="col">
+        <router-link to="/Kalendar"
+          ><img :src="require('@/assets/Kalendar.png')" width="40px"
+        /></router-link>
+      </div>
 
-      <router-link to="/NewTask"
-        ><img :src="require('@/assets/NewTask.png')" width="5%"
-      /></router-link>
+      <div class="col">
+        <router-link to="/NewTask"
+          ><img :src="require('@/assets/NewTask.png')" width="40px"
+        /></router-link>
+      </div>
 
-      <router-link to="/MyProfile"
-        ><img :src="require('@/assets/MojProfil.png')" width="5%"
-      /></router-link>
+      <div class="col">
+        <router-link to="/MyProfile"
+          ><img :src="require('@/assets/MojProfil.png')" width="40px"
+        /></router-link>
+      </div>
     </div>
   </nav>
 </template>
@@ -26,5 +34,8 @@ export default {
   name: "Navigacija",
 };
 </script>
-
+<style scoped>
+.container {
+  width: 80%;
+}
 </style>
