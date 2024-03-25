@@ -3,19 +3,22 @@
     <div class="Zaglavlje">
       <h2 style="font-weight: 600">Kalendar</h2>
     </div>
-    <div class="lijeva_strelica">
-      <span @click="previousDate">
-        <img :src="require('@/assets/left_arrow.png')" width="20vw" />
-      </span>
-    </div>
-    <div style="color: white">{{ formatirani_datum }}</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-3" id="lijeva_strelica">
+          <span @click="previousDate">
+            <img :src="require('@/assets/left_arrow.png')" width="20vw" />
+          </span>
+        </div>
+        <div class="col-6" style="color: white">{{ formatirani_datum }}</div>
 
-    <div class="desna_strelica">
-      <span @click="previousDate">
-        <img :src="require('@/assets/right_arrow.png')" width="20vw" />
-      </span>
+        <div class="col-3" id="desna_strelica">
+          <span @click="previousDate">
+            <img :src="require('@/assets/right_arrow.png')" width="20vw" />
+          </span>
+        </div>
+      </div>
     </div>
-
     <Navigacija />
   </body>
 </template>
@@ -62,10 +65,14 @@ export default {
   border-bottom-right-radius: 20px;
   margin-bottom: 5%;
 }
-.lijeva_strelica {
+#lijeva_strelica {
   cursor: pointer;
 }
-.desna_strelica {
+#desna_strelica {
   cursor: pointer;
+}
+.container {
+  width: 70%;
+  font-weight: 400;
 }
 </style>
