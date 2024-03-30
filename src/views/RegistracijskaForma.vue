@@ -2,25 +2,25 @@
   <body>
     <div class="Zaglavlje">
       <h2 style="font-weight: 600; font-size: large; padding: 5px">
-        Recite nam nešto o svojem ljubimcu
+        Recite nam nešto o svojem ljubimcu:
       </h2>
     </div>
     <div class="Podaci">
       <form>
         <div class="form-group">
-          <label for="name" style="padding-bottom: 5px">Naziv</label>
-          <input type="name" class="form-control" id="name" />
+          <label for="name" style="padding-bottom: 5px">Ime</label>
+          <input v-model="ime" type="name" class="form-control" id="name" />
         </div>
         <div class="form-group">
           <label for="name" style="padding-bottom: 5px">Vrsta</label>
-          <input type="name" class="form-control" id="name" />
+          <input v-model="vrsta" type="name" class="form-control" id="name" />
         </div>
 
         <div class="col-md-4 form-group">
           <label for="inputActivityName" style="padding-bottom: 5px"
             >Spol</label
           >
-          <select id="inputActivityName" class="form-select">
+          <select v-model="spol" id="inputActivityName" class="form-select">
             <option selected>Odaberi</option>
             <option>M</option>
             <option>Ž</option>
@@ -28,7 +28,7 @@
         </div>
         <div class="form-group" style="padding-top: 15px">
           <label for="name" style="padding-bottom: 5px">Dob</label>
-          <input type="name" class="form-control" id="name" />
+          <input v-model="dob" type="name" class="form-control" id="name" />
         </div>
         <div class="Slika">
           Učitaj profilnu sliku
@@ -40,7 +40,7 @@
             />
           </div>
         </div>
-        <button type="button" class="button-done">Spremi</button>
+        <button type="submit" class="button-done">Spremi</button>
       </form>
     </div>
   </body>
@@ -49,6 +49,14 @@
 <script>
 export default {
   name: "Registracija",
+  data() {
+    return {
+      ime: "",
+      vrsta: "",
+      spol: "",
+      dob: "",
+    };
+  },
   components: {},
 };
 </script>
@@ -80,6 +88,7 @@ body {
   width: 120px;
   font-weight: 600;
 }
+
 .form-select {
   border-radius: 20px;
 }

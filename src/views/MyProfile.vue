@@ -14,20 +14,20 @@
           width="70vw"
         />
       </div>
-      <div class="Ime" style="font-weight: bolder">Juice</div>
+      <div class="Ime" style="font-weight: bolder">{{ ime }}</div>
       <div class="mx-auto px-5" id="Informacije">
         <div class="row justify-content-md-center">
           <div class="col-5 col-sm-4 col-lg-5">
             <div class="row justify-content-center">Vrsta</div>
-            <div class="row justify-content-center">Ragdoll</div>
+            <div class="row justify-content-center">{{ vrsta }}</div>
           </div>
           <div class="col-2 col-sm-4 col-lg-2">
             <div class="row justify-content-center">Spol</div>
-            <div class="row justify-content-center">Ž</div>
+            <div class="row justify-content-center">{{ spol }}</div>
           </div>
           <div class="col-5 col-sm-4 col-lg-5">
             <div class="row justify-content-center">Starost</div>
-            <div class="row justify-content-center">2y</div>
+            <div class="row justify-content-center">{{ dob }}y</div>
           </div>
         </div>
       </div>
