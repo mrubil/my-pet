@@ -6,29 +6,26 @@
       </h2>
     </div>
     <div class="Podaci">
-      <form>
+      <form @submit.prevent="addProfileData">
         <div class="form-group">
-          <label for="name" style="padding-bottom: 5px">Ime</label>
-          <input v-model="ime" type="name" class="form-control" id="name" />
+          <label for="ime" style="padding-bottom: 5px">Ime</label>
+          <input v-model="ime" type="name" class="form-control" id="ime" />
         </div>
         <div class="form-group">
-          <label for="name" style="padding-bottom: 5px">Vrsta</label>
-          <input v-model="vrsta" type="name" class="form-control" id="name" />
+          <label for="vrsta" style="padding-bottom: 5px">Vrsta</label>
+          <input v-model="vrsta" type="name" class="form-control" id="vrsta" />
         </div>
 
         <div class="col-md-4 form-group">
-          <label for="inputActivityName" style="padding-bottom: 5px"
-            >Spol</label
-          >
-          <select v-model="spol" id="inputActivityName" class="form-select">
-            <option selected>Odaberi</option>
+          <label for="spol" style="padding-bottom: 5px">Spol</label>
+          <select v-model="spol" id="spol" class="form-select">
             <option>M</option>
             <option>Ž</option>
           </select>
         </div>
         <div class="form-group" style="padding-top: 15px">
-          <label for="name" style="padding-bottom: 5px">Dob</label>
-          <input v-model="dob" type="name" class="form-control" id="name" />
+          <label for="dob" style="padding-bottom: 5px">Dob</label>
+          <input v-model="dob" type="name" class="form-control" id="dob" />
         </div>
         <div class="Slika">
           Učitaj profilnu sliku
@@ -47,15 +44,34 @@
 </template>
 
 <script>
+import { db } from "@/firebase";
+
 export default {
   name: "Registracija",
-  data() {
+  data: function () {
     return {
       ime: "",
       vrsta: "",
       spol: "",
       dob: "",
     };
+  },
+  methods: {
+    addProfileData() {
+      db.collection("myData")
+        .add({
+          ime: this.ime,
+          vrsta: this.vrsta,
+          spol: this.spol,
+          dob: this.dob,
+        })
+        .then((doc) => {
+          console.log("Spremljeno", doc);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    },
   },
   components: {},
 };

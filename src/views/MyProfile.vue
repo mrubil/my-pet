@@ -41,13 +41,21 @@
     <Navigacija />
   </body>
 </template>
+
 <script>
 import Mape from "@/components/Mape.vue";
 import UpcomingTask from "@/components/UpcomingTask.vue";
 import Navigacija from "@/components/Navigacija.vue";
 import { firebase } from "@/firebase";
+import { db } from "@/firebase";
+
 export default {
   name: "MyProfile",
+  data() {
+    return {
+      myData: [],
+    };
+  },
   methods: {
     logout() {
       firebase
