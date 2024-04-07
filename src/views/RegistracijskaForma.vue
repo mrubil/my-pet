@@ -45,6 +45,7 @@
 
 <script>
 import { db } from "@/firebase";
+import store from "@/store";
 
 export default {
   name: "Registracija",
@@ -58,8 +59,12 @@ export default {
   },
   methods: {
     addProfileData() {
+      const UserID = store.currentUser;
+
       db.collection("myData")
-        .add({
+        .doc(UserID)
+        .set({
+          id: store.currentUser,
           ime: this.ime,
           vrsta: this.vrsta,
           spol: this.spol,
@@ -67,6 +72,7 @@ export default {
         })
         .then((doc) => {
           console.log("Spremljeno", doc);
+          this.$router.push({ name: "MyProfile" });
         })
         .catch((e) => {
           console.error(e);

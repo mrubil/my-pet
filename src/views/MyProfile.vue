@@ -14,20 +14,20 @@
           width="70vw"
         />
       </div>
-      <div class="Ime" style="font-weight: bolder">{{ ime }}</div>
+      <div class="Ime" style="font-weight: bolder">{{ myData.ime }}</div>
       <div class="mx-auto px-5" id="Informacije">
         <div class="row justify-content-md-center">
           <div class="col-5 col-sm-4 col-lg-5">
             <div class="row justify-content-center">Vrsta</div>
-            <div class="row justify-content-center">{{ vrsta }}</div>
+            <div class="row justify-content-center">{{ myData.vrsta }}</div>
           </div>
           <div class="col-2 col-sm-4 col-lg-2">
             <div class="row justify-content-center">Spol</div>
-            <div class="row justify-content-center">{{ spol }}</div>
+            <div class="row justify-content-center">{{ myData.spol }}</div>
           </div>
           <div class="col-5 col-sm-4 col-lg-5">
             <div class="row justify-content-center">Starost</div>
-            <div class="row justify-content-center">{{ dob }}y</div>
+            <div class="row justify-content-center">{{ myData.dob }}y</div>
           </div>
         </div>
       </div>
@@ -48,14 +48,20 @@ import UpcomingTask from "@/components/UpcomingTask.vue";
 import Navigacija from "@/components/Navigacija.vue";
 import { firebase } from "@/firebase";
 import { db } from "@/firebase";
+import store from "@/store";
 
 export default {
   name: "MyProfile",
   data() {
     return {
-      myData: [],
+      myData: {},
     };
   },
+
+  created() {
+    this.getMyData();
+  },
+
   methods: {
     logout() {
       firebase
@@ -65,7 +71,25 @@ export default {
           this.$router.push({ name: "LandingPage" });
         });
     },
+    getMyData() {
+      const UserID = store.currentUser;
+
+      db.collection("myData")
+        .doc(UserID)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            this.myData = doc.data();
+          } else {
+            console.log("Ne postoje podaci o korisniku");
+          }
+        })
+        .catch((error) => {
+          console.error("Pojavila se greška prilikom dohvata podataka", error);
+        });
+    },
   },
+
   components: {
     Mape,
     UpcomingTask,
