@@ -7,10 +7,17 @@
             Odlazak veterinaru
           </div>
           <div class="col-4 align-self-center" style="color: #ff344c">
-            21/02/2024
+            15:00
           </div>
           <div class="col-3 align-self-center" style="color: #ff344c">
-            15:00
+            <input
+              class="form-check-input"
+              type="radio"
+              name="radioNoLabel"
+              id="radioNoLabel1"
+              value=""
+              aria-label="..."
+            />
           </div>
         </div>
       </div>
@@ -20,7 +27,7 @@
 
 <script>
 export default {
-  name: "UpcomingTask",
+  name: "DnevniZadatak",
 };
 </script>
 

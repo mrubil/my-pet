@@ -4,24 +4,36 @@
       <h2 style="font-weight: 600">Nova aktivnost</h2>
     </div>
     <div class="mx-4" id="NoviZadatak">
-      <form>
+      <form @submit.prevent="dodajZadatak">
         <div class="form-group">
-          <label for="name" style="padding-bottom: 5px">Naziv</label>
-          <input type="name" class="form-control" id="name" />
+          <label for="naziv" style="padding-bottom: 5px">Naziv</label>
+          <input v-model="naziv" type="name" class="form-control" id="naziv" />
         </div>
         <div class="col-md-4 form-group">
-          <label for="inputActivityName" style="padding-bottom: 5px"
+          <label for="vrstaAktivnosti" style="padding-bottom: 5px"
             >Vrsta aktivnosti</label
           >
-          <select id="inputActivityName" class="form-select">
+          <select
+            v-model="vrstaAktivnosti"
+            id="inputActivityName"
+            class="form-select"
+            style="font-size: small"
+          >
             <option selected>Odaberi</option>
             <option>Prehrana</option>
             <option>Zdravlje</option>
             <option>Aktivnost</option>
           </select>
         </div>
-
-        <button type="button" class="button-Gotovo">Gotovo</button>
+        <div class="form-group">
+          <label for="datum" style="padding-bottom: 5px">Datum</label>
+          <input v-model="datum" type="date" class="form-control" id="datum" />
+        </div>
+        <div class="form-group">
+          <label for="vrijeme" style="padding-bottom: 5px">Vrijeme</label>
+          <input v-model="vrijeme" type="time" class="form-control" />
+        </div>
+        <button type="submit" class="button-Gotovo">Gotovo</button>
       </form>
     </div>
     <Navigacija />
@@ -30,16 +42,51 @@
 
 <script>
 import Navigacija from "@/components/Navigacija.vue";
+import { db } from "@/firebase";
+import store from "@/store";
 
 export default {
   name: "NewTask",
   components: {
     Navigacija,
   },
+  data() {
+    return {
+      naziv: "",
+      vrstaAktivnosti: "",
+      datum: "",
+      vrijeme: "",
+    };
+  },
+  methods: {
+    dodajZadatak() {
+      const UserID = store.currentUser;
+
+      db.collection("Tasks")
+        .doc(UserID)
+        .set({
+          id: store.currentUser,
+          naziv: this.naziv,
+          vrstaAktivnosti: this.vrstaAktivnosti,
+          datum: this.datum,
+          vrijeme: this.vrijeme,
+        })
+        .then((doc) => {
+          console.log("Dodavanje zadatka...", doc);
+          this.$router.push({ name: "MyProfile" });
+        })
+        .catch((e) => {
+          console.error("Zadatak neuspješno dodan", e);
+        });
+    },
+  },
 };
 </script>
 
 <style>
+body {
+  background: #ff344c;
+}
 .Zaglavlje {
   background: white;
   padding: 20px;
@@ -70,5 +117,11 @@ export default {
 }
 .form-control {
   border-radius: 20px;
+  font-size: small;
+}
+.form-group {
+  text-align: left;
+  margin-bottom: 10%;
+  font-weight: 600;
 }
 </style>

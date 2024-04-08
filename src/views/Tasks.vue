@@ -3,28 +3,35 @@
     <div class="Zaglavlje">
       <h2 style="font-weight: 600">Današnje aktivnosti</h2>
     </div>
-    Gdje je tekst??
+    <div id="Zadaci">
+      <DnevniZadatak />
+    </div>
     <Navigacija />
   </body>
 </template>
 
 <script>
 import Navigacija from "@/components/Navigacija.vue";
+import DnevniZadatak from "@/components/DnevniZadatak.vue";
 
 export default {
   name: "Tasks",
   components: {
     Navigacija,
+    DnevniZadatak,
   },
 };
 </script>
 
 <style>
-.ZAglavlje {
+.Zaglavlje {
   background: white;
   padding: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 5%;
+}
+body {
+  background: #ff344c;
 }
 </style>
