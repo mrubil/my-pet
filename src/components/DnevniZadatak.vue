@@ -1,24 +1,18 @@
 <template>
-  <div class="card mx-auto rounded-4" style="width: 90%">
+  <div class="card mx-auto rounded-4" id="kartica" style="width: 90%">
     <div class="card-body">
-      <div class="container">
-        <div class="row" style="font-size: 13px">
-          <div class="card-title col-5 align-self-center">
-            Odlazak veterinaru
-          </div>
-          <div class="col-4 align-self-center" style="color: #ff344c">
-            15:00
-          </div>
-          <div class="col-3 align-self-center" style="color: #ff344c">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="radioNoLabel"
-              id="radioNoLabel1"
-              value=""
-              aria-label="..."
-            />
-          </div>
+      <div class="row" style="font-size: 13px">
+        <div class="card-title col-5 align-self-center">Odlazak veterinaru</div>
+        <div class="col-4 align-self-center" style="color: #ff344c">15:00</div>
+        <div class="col-3 align-self-center" style="color: #ff344c">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="radio-2"
+            id="radio-2"
+            value=""
+            aria-label="..."
+          />
         </div>
       </div>
     </div>
@@ -28,11 +22,20 @@
 <script>
 export default {
   name: "DnevniZadatak",
+  methods: {},
 };
 </script>
 
 <style>
-.container {
+#kartica {
   font-weight: 600;
+}
+.form-check-input:checked {
+  background-color: #ff344c;
+  border-color: #ff344c;
+}
+.form-check-input {
+  border-color: #ff344c;
+  border-width: 2px;
 }
 </style>
