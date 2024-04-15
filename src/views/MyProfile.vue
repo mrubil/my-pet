@@ -36,7 +36,6 @@
       <Mape />
 
       <p class="N" style="text-align: left">Nadolazeće aktivnosti</p>
-      <UpcomingTask />
     </div>
     <Navigacija />
   </body>
@@ -68,14 +67,14 @@ export default {
         .auth()
         .signOut()
         .then(() => {
+          console.log("Uspješna odjava!");
           this.$router.push({ name: "LandingPage" });
         });
     },
     getMyData() {
-      const UserID = store.currentUser;
-
+      console.log("Trenutni korisnik na ruti MyProfile: ", store.currentUser);
       db.collection("myData")
-        .doc(UserID)
+        .doc(store.currentUser)
         .get()
         .then((doc) => {
           if (doc.exists) {

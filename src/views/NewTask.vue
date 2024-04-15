@@ -4,7 +4,7 @@
       <h2 style="font-weight: 600">Nova aktivnost</h2>
     </div>
     <div class="mx-4" id="NoviZadatak">
-      <form @submit.prevent="dodajZadatak">
+      <form @submit.prevent="dodajZadatak()">
         <div class="form-group">
           <label for="naziv" style="padding-bottom: 5px">Naziv</label>
           <input v-model="naziv" type="name" class="form-control" id="naziv" />
@@ -64,7 +64,8 @@ export default {
 
       db.collection("Tasks")
         .doc(UserID)
-        .set({
+        .collection("MyTasks")
+        .add({
           id: store.currentUser,
           naziv: this.naziv,
           vrstaAktivnosti: this.vrstaAktivnosti,

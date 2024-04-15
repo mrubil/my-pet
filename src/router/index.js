@@ -102,4 +102,23 @@ const router = new VueRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  console.log(
+    "Stara ruta",
+    from.name,
+    "nova ruta",
+    to.name,
+    "Korisnik:",
+    store.currentUser
+  );
+
+  const noUser = store.currentUser === null;
+
+  if (noUser && to.meta.needsUser) {
+    next({ name: "Login" });
+  } else {
+    next();
+  }
+});
+
 export default router;

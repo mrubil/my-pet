@@ -19,22 +19,34 @@
         </div>
       </div>
     </div>
+    <div class="Zadaci">
+      <UpcomingTask v-for="task in tasks" :key="task.id"></UpcomingTask>
+    </div>
     <Navigacija />
   </body>
 </template>
 
 <script>
 import Navigacija from "@/components/Navigacija.vue";
+import UpcomingTask from "@/components/UpcomingTask.vue";
+import store from "@/store";
+import { db } from "@/firebase";
 
 export default {
   name: "Kalendar",
   components: {
     Navigacija,
+    UpcomingTask,
   },
+
   data() {
     return {
       danasnji_datum: new Date(),
+      tasks: [],
     };
+  },
+  mounted() {
+    this.getMyTasks();
   },
 
   computed: {
@@ -43,6 +55,28 @@ export default {
     },
   },
   methods: {
+    getMyTasks() {
+      console.log("Trenutni korisnik na ruti Kalendar:", store.currentUser);
+      db.collection("Tasks")
+        .doc(store.currentUser)
+        .collection("MyTasks")
+        .where("datum", "==", this.formatirani_datum)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            this.tasks.push({
+              id: doc.id,
+              naziv: doc.data().naziv,
+              datum: doc.data().datum,
+              vrijeme: doc.data().vrijeme,
+            });
+          });
+        })
+        .catch((error) => {
+          console.error("Error prilikom dohvata", error);
+        });
+    },
+
     async previousDate() {
       const jucer = new Date(this.danasnji_datum); //promijeni naziv u trenutni
       jucer.setDate(jucer.getDate() - 1);
@@ -58,6 +92,9 @@ export default {
 </script>
 
 <style>
+body {
+  background: #ff344c;
+}
 .Zaglavlje {
   background: white;
   padding: 20px;
@@ -74,5 +111,8 @@ export default {
 .container {
   width: 70%;
   font-weight: 400;
+}
+.Zadaci {
+  padding-top: 20px;
 }
 </style>
