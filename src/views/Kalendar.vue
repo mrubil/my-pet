@@ -56,7 +56,6 @@ export default {
   },
   methods: {
     getMyTasks() {
-      console.log("Trenutni korisnik na ruti Kalendar:", store.currentUser);
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")

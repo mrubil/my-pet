@@ -72,7 +72,6 @@ export default {
         });
     },
     getMyData() {
-      console.log("Trenutni korisnik na ruti MyProfile: ", store.currentUser);
       db.collection("myData")
         .doc(store.currentUser)
         .get()

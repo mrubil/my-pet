@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view />
+    <router-view v-if="InicijalizacijaOnAuthStateChange" />
   </div>
 </template>
 
@@ -14,17 +14,17 @@ export default {
   data() {
     return {
       store,
+      InicijalizacijaOnAuthStateChange: false,
     };
   },
-
-  mounted() {
+  created() {
     firebase.auth().onAuthStateChanged((user) => {
       const currentRoute = router.currentRoute;
 
       console.log("Provjera stanja logina");
       if (user) {
         //korisnik je ulogiran.
-        console.log(user.email);
+        console.log("Trenutni prijavljeni korisnik", user.email);
         store.currentUser = user.email;
 
         if (!currentRoute.meta.needsUser) {
@@ -39,6 +39,7 @@ export default {
           router.push({ name: "Login" });
         }
       }
+      this.InicijalizacijaOnAuthStateChange = true;
     });
   },
 };
