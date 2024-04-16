@@ -23,5 +23,6 @@ export default {
 <style>
 #kartica {
   font-weight: 600;
+  margin-top: 20px;
 }
 </style>

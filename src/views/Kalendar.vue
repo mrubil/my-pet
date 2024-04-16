@@ -13,14 +13,18 @@
         <div class="col-6" style="color: white">{{ formatirani_datum }}</div>
 
         <div class="col-3" id="desna_strelica">
-          <span @click="previousDate">
+          <span @click="nextDate">
             <img :src="require('@/assets/right_arrow.png')" width="20vw" />
           </span>
         </div>
       </div>
     </div>
     <div class="Zadaci">
-      <UpcomingTask v-for="task in tasks" :key="task.id"></UpcomingTask>
+      <UpcomingTask
+        v-for="task in tasks"
+        :key="task.id"
+        :MyTask="task"
+      ></UpcomingTask>
     </div>
     <Navigacija />
   </body>
@@ -31,6 +35,7 @@ import Navigacija from "@/components/Navigacija.vue";
 import UpcomingTask from "@/components/UpcomingTask.vue";
 import store from "@/store";
 import { db } from "@/firebase";
+import moment from "moment";
 
 export default {
   name: "Kalendar",
@@ -56,10 +61,12 @@ export default {
   },
   methods: {
     getMyTasks() {
+      const noviFormatDatuma = moment(this.danasnji_datum).format("YYYY-MM-DD");
+      console.log(noviFormatDatuma);
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")
-        .where("datum", "==", this.formatirani_datum)
+        .where("datum", "==", noviFormatDatuma)
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -80,11 +87,15 @@ export default {
       const jucer = new Date(this.danasnji_datum); //promijeni naziv u trenutni
       jucer.setDate(jucer.getDate() - 1);
       this.danasnji_datum = jucer;
+      this.tasks = [];
+      this.getMyTasks();
     },
     async nextDate() {
       const sutra = new Date(this.danasnji_datum); //promijeni naziv u trenutni
       sutra.setDate(sutra.getDate() + 1);
       this.danasnji_datum = sutra;
+      this.tasks = [];
+      this.getMyTasks();
     },
   },
 };
