@@ -83,14 +83,14 @@ export default {
         });
     },
 
-    async previousDate() {
+    previousDate() {
       const jucer = new Date(this.danasnji_datum); //promijeni naziv u trenutni
       jucer.setDate(jucer.getDate() - 1);
       this.danasnji_datum = jucer;
-      this.tasks = [];
+      this.tasks = []; //isprazni array
       this.getMyTasks();
     },
-    async nextDate() {
+    nextDate() {
       const sutra = new Date(this.danasnji_datum); //promijeni naziv u trenutni
       sutra.setDate(sutra.getDate() + 1);
       this.danasnji_datum = sutra;
