@@ -3,7 +3,7 @@
     <a class="navbar-brand position-absolute" href="#"></a>
     <div class="container">
       <div class="col">
-        <router-link to="/Tasks"
+        <router-link to="/DailyTasks"
           ><img :src="require('@/assets/Tasks.png')" width="40px"
         /></router-link>
       </div>

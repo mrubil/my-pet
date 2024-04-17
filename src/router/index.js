@@ -42,10 +42,10 @@ const routes = [
     },
   },
   {
-    path: "/Tasks",
-    name: "Tasks",
+    path: "/DailyTasks",
+    name: "DailyTasks",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Tasks.vue"),
+      import(/* webpackChunkName: "about" */ "../views/DailyTasks.vue"),
     meta: {
       needsUser: true,
     },

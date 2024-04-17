@@ -3,22 +3,18 @@
     <div class="Zaglavlje">
       <h2 style="font-weight: 600">Današnje aktivnosti</h2>
     </div>
-    <div id="Zadaci">
-      <DnevniZadatak />
-    </div>
+    <div id="Zadaci">hej</div>
     <Navigacija />
   </body>
 </template>
 
 <script>
 import Navigacija from "@/components/Navigacija.vue";
-import DnevniZadatak from "@/components/DnevniZadatak.vue";
 
 export default {
-  name: "Tasks",
+  name: "DailyTasks",
   components: {
     Navigacija,
-    DnevniZadatak,
   },
 };
 </script>

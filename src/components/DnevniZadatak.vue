@@ -2,8 +2,12 @@
   <div class="card mx-auto rounded-4" id="kartica" style="width: 90%">
     <div class="card-body">
       <div class="row" style="font-size: 13px">
-        <div class="card-title col-5 align-self-center">Odlazak veterinaru</div>
-        <div class="col-4 align-self-center" style="color: #ff344c">15:00</div>
+        <div class="card-title col-5 align-self-center">
+          {{ dailyTask.naziv }}
+        </div>
+        <div class="col-4 align-self-center" style="color: #ff344c">
+          {{ dailyTask.vrijeme }}
+        </div>
         <div class="col-3 align-self-center" style="color: #ff344c">
           <input
             class="form-check-input"
@@ -21,8 +25,7 @@
 
 <script>
 export default {
-  name: "DnevniZadatak",
-  methods: {},
+  props: [dailyTask],
 };
 </script>
 
