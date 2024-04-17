@@ -20,11 +20,7 @@
       </div>
     </div>
     <div class="Zadaci">
-      <UpcomingTask
-        v-for="task in tasks"
-        :key="task.id"
-        :MyTask="task"
-      ></UpcomingTask>
+      <UpcomingTask v-for="task in tasks" :key="task.id" :task="task" />
     </div>
     <Navigacija />
   </body>
@@ -62,7 +58,7 @@ export default {
   methods: {
     getMyTasks() {
       const noviFormatDatuma = moment(this.danasnji_datum).format("YYYY-MM-DD");
-      console.log(noviFormatDatuma);
+      //console.log(noviFormatDatuma);
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")
@@ -88,7 +84,7 @@ export default {
       jucer.setDate(jucer.getDate() - 1);
       this.danasnji_datum = jucer;
       this.tasks = []; //isprazni array
-      this.getMyTasks();
+      this.getMyTasks(); //pozovi ponovno funkciju
     },
     nextDate() {
       const sutra = new Date(this.danasnji_datum); //promijeni naziv u trenutni
