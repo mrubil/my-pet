@@ -3,7 +3,7 @@
     <div class="Zaglavlje">
       <h2 style="font-weight: 600">Današnje aktivnosti</h2>
     </div>
-    <div id="Zadaci">hej</div>
+    <div id="Zadaci"></div>
     <Navigacija />
   </body>
 </template>
@@ -16,6 +16,10 @@ export default {
   components: {
     Navigacija,
   },
+  data() {
+    return {};
+  },
+  methods: {},
 };
 </script>
 
