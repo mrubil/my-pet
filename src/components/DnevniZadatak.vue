@@ -25,13 +25,14 @@
 
 <script>
 export default {
-  props: [dailyTask],
+  props: ["dailyTask"],
 };
 </script>
 
 <style>
 #kartica {
   font-weight: 600;
+  margin-top: 20px;
 }
 .form-check-input:checked {
   background-color: #ff344c;
