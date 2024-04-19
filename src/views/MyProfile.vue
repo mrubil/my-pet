@@ -3,18 +3,33 @@
     <div class="ZaglavljeProfila">
       <div class="Odjava">
         <span @click="logout()"
-          ><img :src="require('@/assets/exit.png')" width="20vw"
+          ><img :src="require('@/assets/Logout.png')" width="20vw"
         /></span>
       </div>
-      <div class="SlikaProfila">
-        <img
-          class="rounded-circle object-fit-cover"
-          :src="require('@/assets/profilna.jpg')"
-          height="70vw"
-          width="70vw"
-        />
+
+      <div class="row">
+        <div class="col"></div>
+
+        <div class="col d-flex align-items-begin justify-content-end">
+          <router-link to="/EditProfile"
+            ><img :src="require('@/assets/EditProfile.png')" width="20vw"
+          /></router-link>
+        </div>
+        <div class="col" id="SlikaProfila">
+          <img
+            class="rounded-circle object-fit-cover"
+            :src="require('@/assets/profilna.jpg')"
+            height="70vw"
+            width="70vw"
+          />
+        </div>
+        <div class="col"></div>
+        <div class="col"></div>
       </div>
-      <div class="Ime" style="font-weight: bolder">{{ myData.ime }}</div>
+
+      <div id="Ime" style="font-weight: bolder">
+        {{ myData.ime }}
+      </div>
       <div class="mx-auto px-5" id="Informacije">
         <div class="row justify-content-md-center">
           <div class="col-5 col-sm-4 col-lg-5">
@@ -111,11 +126,11 @@ body {
   text-align: right;
   cursor: pointer;
 }
-.SlikaProfila {
+#SlikaProfila {
   padding: 5px;
 }
 
-.Ime {
+#Ime {
   padding: 5px;
 }
 #Informacije {

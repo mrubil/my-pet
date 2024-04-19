@@ -8,7 +8,7 @@
     <div class="Podaci">
       <form @submit.prevent="addProfileData">
         <div class="form-group">
-          <label for="ime" style="padding-bottom: 5px">Ime</label>
+          <label for="ime" style="padding-bottom: 5px">Ime ljubimca</label>
           <input
             v-model="ime"
             type="name"
