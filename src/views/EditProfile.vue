@@ -9,23 +9,41 @@
       <form @submit.prevent="addProfileData">
         <div class="form-group">
           <label for="ime" style="padding-bottom: 5px">Ime</label>
-          <input v-model="ime" type="name" class="form-control" id="ime" />
+          <input
+            v-model="ime"
+            type="name"
+            class="form-control"
+            id="ime"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="vrsta" style="padding-bottom: 5px">Vrsta</label>
-          <input v-model="vrsta" type="name" class="form-control" id="vrsta" />
+          <input
+            v-model="vrsta"
+            type="name"
+            class="form-control"
+            id="vrsta"
+            required
+          />
         </div>
 
         <div class="col-md-4 form-group">
           <label for="spol" style="padding-bottom: 5px">Spol</label>
-          <select v-model="spol" id="spol" class="form-select">
+          <select v-model="spol" id="spol" class="form-select" required>
             <option>M</option>
             <option>Ž</option>
           </select>
         </div>
         <div class="form-group" style="padding-top: 15px">
           <label for="dob" style="padding-bottom: 5px">Dob</label>
-          <input v-model="dob" type="name" class="form-control" id="dob" />
+          <input
+            v-model="dob"
+            type="name"
+            class="form-control"
+            id="dob"
+            required
+          />
         </div>
         <div class="Slika">
           Učitaj profilnu sliku

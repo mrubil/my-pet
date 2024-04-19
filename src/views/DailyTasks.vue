@@ -55,7 +55,7 @@ export default {
           });
         })
         .catch((error) => {
-          console.error("Greška priliko dohvata podataka", error);
+          console.error("Greška prilikom dohvata podataka", error);
         });
     },
   },

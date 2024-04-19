@@ -18,6 +18,7 @@
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            required
           />
         </div>
         <div class="form-group">
@@ -29,6 +30,7 @@
             v-model="password"
             class="form-control"
             id="exampleInputPassword1"
+            required
           />
         </div>
         <div class="form-group">
@@ -40,6 +42,7 @@
             v-model="passwordRepeat"
             class="form-control"
             id="exampleInputPassword2"
+            required
           />
         </div>
 
