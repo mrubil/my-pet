@@ -72,7 +72,7 @@ export default {
         .createUserWithEmailAndPassword(this.username, this.password)
         .then(function () {
           console.log("Uspješna registracija");
-          router.push({ name: "RegistracijskaForma" });
+          router.push({ name: "EditProfile" });
         })
         .catch(function () {
           console.error("Došlo je do greške");

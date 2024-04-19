@@ -87,12 +87,13 @@ const routes = [
     },
   },
   {
-    path: "/RegistracijskaForma",
-    name: "RegistracijskaForma",
+    path: "/EditProfile",
+    name: "EditProfile",
     component: () =>
-      import(
-        /* webpackChunkName: "about" */ "../views/RegistracijskaForma.vue"
-      ),
+      import(/* webpackChunkName: "about" */ "../views/EditProfile.vue"),
+    meta: {
+      needsUser: true,
+    },
   },
 ];
 
