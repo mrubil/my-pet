@@ -18,7 +18,6 @@
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            required
           />
         </div>
         <div class="form-group">
@@ -30,7 +29,6 @@
             v-model="password"
             class="form-control"
             id="exampleInputPassword1"
-            required
           />
         </div>
         <button type="button" @click="login()" class="button-Prijava">

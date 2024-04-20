@@ -87,6 +87,15 @@ const routes = [
     },
   },
   {
+    path: "/RegistrationForm",
+    name: "RegistrationForm",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/RegistrationForm.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
+  {
     path: "/EditProfile",
     name: "EditProfile",
     component: () =>
