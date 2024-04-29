@@ -47,12 +47,18 @@
         </div>
         <div class="Slika" style="margin-top: 5px">
           Učitaj profilnu sliku
-          <div class="Upload">
-            <img
-              class="square"
-              :src="require('@/assets/Camera.png')"
-              height="70vw"
-            />
+          <div style="margin-top: 15px">
+            <croppa
+              :width="150"
+              :height="150"
+              :placeholder="'Odaberi sliku'"
+              :placeholder-font-size="14"
+              :remove-button-color="'black'"
+              :remove-button-size="25"
+              v-model="Profilna"
+              style=""
+            >
+            </croppa>
           </div>
         </div>
         <button type="submit" class="button-done">Spremi</button>
@@ -64,8 +70,7 @@
 
 <script>
 import Navigacija from "@/components/Navigacija.vue";
-import { db } from "@/firebase";
-
+import { db, storage } from "@/firebase";
 import store from "@/store";
 
 export default {
@@ -79,6 +84,7 @@ export default {
       vrsta: "",
       spol: "",
       dob: "",
+      Profilna: null,
     };
   },
   mounted() {
@@ -101,6 +107,22 @@ export default {
         });
     },
     urediProfil() {
+      this.Profilna.generateBlob((blob) => {
+        let imageName = store.currentUser + "/" + "Profilna" + ".png";
+        storage
+          .ref(imageName)
+          .put(blob)
+          .then((result) => {
+            console.log(result);
+            result.ref.getDownloadURL().then((url) => {
+              console.log("Javni link", url);
+            });
+          })
+          .catch((e) => {
+            console.error(e);
+          });
+      });
+
       db.collection("myData")
         .doc(store.currentUser)
         .update({
