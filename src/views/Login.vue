@@ -98,6 +98,7 @@ body {
 .form-control {
   margin-bottom: 5%;
   border-radius: 20px;
+  background: white;
 }
 .form-group {
   text-align: left;

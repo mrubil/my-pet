@@ -11,7 +11,7 @@
           <label for="ime" style="padding-bottom: 5px">Ime ljubimca</label>
           <input
             v-model="ime"
-            type="name"
+            type="text"
             class="form-control"
             id="ime"
             required
@@ -21,7 +21,7 @@
           <label for="vrsta" style="padding-bottom: 5px">Vrsta</label>
           <input
             v-model="vrsta"
-            type="name"
+            type="text"
             class="form-control"
             id="vrsta"
             required
@@ -39,7 +39,7 @@
           <label for="dob" style="padding-bottom: 5px">Dob</label>
           <input
             v-model="dob"
-            type="name"
+            type="number"
             class="form-control"
             id="dob"
             required
@@ -107,7 +107,6 @@ export default {
   padding: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  margin-bottom: 5%;
 }
 body {
   background: #ff344c;
