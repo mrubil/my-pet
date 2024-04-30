@@ -56,7 +56,6 @@
               :remove-button-color="'black'"
               :remove-button-size="25"
               v-model="Profilna"
-              style=""
             >
             </croppa>
           </div>
@@ -115,29 +114,28 @@ export default {
           .then((result) => {
             console.log(result);
             result.ref.getDownloadURL().then((url) => {
-              console.log("Javni link", url);
+              db.collection("myData")
+                .doc(store.currentUser)
+                .update({
+                  ime: this.ime,
+                  vrsta: this.vrsta,
+                  spol: this.spol,
+                  dob: this.dob,
+                  url: url,
+                })
+                .then((doc) => {
+                  console.log("Novi podaci su spremljeni", doc);
+                  this.$router.push({ name: "MyProfile" });
+                })
+                .catch((error) => {
+                  console.error("Error prilikom učitavanja profila!", error);
+                });
             });
           })
           .catch((e) => {
             console.error(e);
           });
       });
-
-      db.collection("myData")
-        .doc(store.currentUser)
-        .update({
-          ime: this.ime,
-          vrsta: this.vrsta,
-          spol: this.spol,
-          dob: this.dob,
-        })
-        .then((doc) => {
-          console.log("Novi podaci su spremljeni", doc);
-          this.$router.push({ name: "MyProfile" });
-        })
-        .catch((error) => {
-          console.error("Error prilikom učitavanja profila!", error);
-        });
     },
   },
 };

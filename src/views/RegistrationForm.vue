@@ -45,14 +45,20 @@
             required
           />
         </div>
-        <div class="Slika">
+        <div class="Slika" style="margin-top: 5px">
           Učitaj profilnu sliku
-          <div class="Upload">
-            <img
-              class="square"
-              :src="require('@/assets/Camera.png')"
-              height="70vw"
-            />
+          <div style="margin-top: 15px">
+            <croppa
+              :width="150"
+              :height="150"
+              :placeholder="'Odaberi sliku'"
+              :placeholder-font-size="14"
+              :remove-button-color="'black'"
+              :remove-button-size="25"
+              v-model="Profilna"
+              style=""
+            >
+            </croppa>
           </div>
         </div>
         <button type="submit" class="button-done">Spremi</button>
@@ -73,28 +79,44 @@ export default {
       vrsta: "",
       spol: "",
       dob: "",
+      Profilna: "",
     };
   },
   methods: {
     addProfileData() {
       const UserID = store.currentUser;
 
-      db.collection("myData")
-        .doc(UserID)
-        .set({
-          id: store.currentUser,
-          ime: this.ime,
-          vrsta: this.vrsta,
-          spol: this.spol,
-          dob: this.dob,
-        })
-        .then((doc) => {
-          console.log("Spremljeno", doc);
-          this.$router.push({ name: "MyProfile" });
-        })
-        .catch((e) => {
-          console.error(e);
-        });
+      this.Profilna.generateBlob((blob) => {
+        let imageName = store.currentUser + "/" + "Profilna" + ".png";
+        storage
+          .ref(imageName)
+          .put(blob)
+          .then((result) => {
+            console.log(result);
+            result.ref.getDownloadURL().then((url) => {
+              db.collection("myData")
+                .doc(UserID)
+                .set({
+                  id: store.currentUser,
+                  ime: this.ime,
+                  vrsta: this.vrsta,
+                  spol: this.spol,
+                  dob: this.dob,
+                  url: url,
+                })
+                .then((doc) => {
+                  console.log("Spremljeno", doc);
+                  this.$router.push({ name: "MyProfile" });
+                })
+                .catch((e) => {
+                  console.error(e);
+                });
+            });
+          })
+          .catch((e) => {
+            console.error(e);
+          });
+      });
     },
   },
   components: {},
