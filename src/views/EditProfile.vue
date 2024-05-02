@@ -57,6 +57,7 @@
               :remove-button-size="25"
               v-model="Profilna"
             >
+              <img slot="initial" :src="stariURL" />
             </croppa>
           </div>
         </div>
@@ -84,6 +85,7 @@ export default {
       spol: "",
       dob: "",
       Profilna: null,
+      stariURL: "",
     };
   },
   mounted() {
@@ -100,6 +102,7 @@ export default {
           this.vrsta = data.vrsta;
           this.spol = data.spol;
           this.dob = data.dob;
+          this.stariURL = data.url;
         })
         .catch((error) => {
           console.error("Error prilikom dohvata!", error);
