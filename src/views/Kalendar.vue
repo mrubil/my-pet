@@ -19,6 +19,9 @@
         </div>
       </div>
     </div>
+    <div class="Kalendar" style="margin-top: 5px">
+      <v-date-picker is-expanded v-model="danasnji_datum" color="gray" />
+    </div>
     <div class="Zadaci">
       <UpcomingTask v-for="task in tasks" :key="task.id" :task="task" />
     </div>
