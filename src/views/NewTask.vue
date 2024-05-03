@@ -61,7 +61,8 @@ export default {
   methods: {
     dodajZadatak() {
       const UserID = store.currentUser;
-
+      const dateTimeString = `${this.datum} ${this.vrijeme}`; //da bismo mogli koristiti orderBy time kombiniramo datum i vrijeme u timestamp
+      const timestamp = new Date(dateTimeString).getTime();
       db.collection("Tasks")
         .doc(UserID)
         .collection("MyTasks")
@@ -71,6 +72,7 @@ export default {
           vrstaAktivnosti: this.vrstaAktivnosti,
           datum: this.datum,
           vrijeme: this.vrijeme,
+          datumVrijeme: timestamp,
         })
         .then((doc) => {
           console.log("Dodavanje zadatka...", doc);

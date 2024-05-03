@@ -23,6 +23,7 @@
       <v-date-picker is-expanded v-model="danasnji_datum" color="gray" />
     </div>
     <div class="Zadaci">
+      <p id="Naslov">Aktivnosti</p>
       <UpcomingTask v-for="task in tasks" :key="task.id" :task="task" />
     </div>
     <Navigacija />
@@ -66,6 +67,7 @@ export default {
         .doc(store.currentUser)
         .collection("MyTasks")
         .where("datum", "==", noviFormatDatuma)
+        .orderBy("datumVrijeme")
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -123,5 +125,12 @@ body {
 }
 .Zadaci {
   padding-top: 20px;
+}
+#Naslov {
+  font-size: 14px;
+  color: white;
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 600;
 }
 </style>

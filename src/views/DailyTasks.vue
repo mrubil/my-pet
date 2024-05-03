@@ -44,6 +44,7 @@ export default {
         .doc(store.currentUser)
         .collection("MyTasks")
         .where("datum", "==", danasnji_datum)
+        .orderBy("datumVrijeme", "asc")
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {

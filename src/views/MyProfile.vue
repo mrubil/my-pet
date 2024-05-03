@@ -27,7 +27,7 @@
         <div class="col"></div>
       </div>
 
-      <div id="Ime" style="font-weight: bolder">
+      <div id="Ime" style="font-weight: 600">
         {{ myData.ime }}
       </div>
       <div class="mx-auto px-5" id="Informacije">
@@ -137,12 +137,14 @@ body {
   padding: 5px;
   margin-right: 1rem;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
 }
 p.N {
-  padding-left: 5%;
+  padding-left: 20px;
   padding-top: 5px;
   color: white;
   font-size: 14px;
+  margin-top: 10px;
+  font-weight: 600;
 }
 </style>
