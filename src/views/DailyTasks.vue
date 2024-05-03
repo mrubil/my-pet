@@ -74,4 +74,7 @@ export default {
 body {
   background: #ff344c;
 }
+#Zadaci {
+  margin-bottom: 80px;
+}
 </style>

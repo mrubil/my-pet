@@ -20,7 +20,12 @@
       </div>
     </div>
     <div class="Kalendar" style="margin-top: 5px">
-      <v-date-picker is-expanded v-model="danasnji_datum" color="gray" />
+      <v-date-picker
+        is-expanded
+        v-model="danasnji_datum"
+        color="gray"
+        @input="getMyTasks"
+      />
     </div>
     <div class="Zadaci">
       <p id="Naslov">Aktivnosti</p>
@@ -63,6 +68,9 @@ export default {
     getMyTasks() {
       const noviFormatDatuma = moment(this.danasnji_datum).format("YYYY-MM-DD");
       //console.log(noviFormatDatuma);
+
+      this.tasks = []; //ocisti prethodne zadatke
+
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")
@@ -125,6 +133,7 @@ body {
 }
 .Zadaci {
   padding-top: 20px;
+  margin-bottom: 80px;
 }
 #Naslov {
   font-size: 14px;
