@@ -2,13 +2,13 @@
   <div class="card mx-auto rounded-4" id="kartica" style="width: 90%">
     <div class="card-body">
       <div class="row" style="font-size: 13px">
-        <div class="card-title col-5 align-self-center">
+        <div class="col-4 align-self-center">
           {{ dailyTask.naziv }}
         </div>
-        <div class="col-4 align-self-center" style="color: #ff344c">
+        <div class="col-3 align-self-center" style="color: black">
           {{ dailyTask.vrijeme }}
         </div>
-        <div class="col-3 align-self-center" style="color: #ff344c">
+        <div class="col align-self-center" style="color: #ff344c">
           <input
             class="form-check-input"
             type="radio"
@@ -18,6 +18,9 @@
             aria-label="..."
           />
         </div>
+        <div class="col align-self-center">
+          <button @click="UrediZadatak" class="gumb">Uredi</button>
+        </div>
       </div>
     </div>
   </div>
@@ -26,6 +29,14 @@
 <script>
 export default {
   props: ["dailyTask"],
+  methods: {
+    UrediZadatak() {
+      this.$router.push({
+        name: "EditTask",
+        params: { id: this.dailyTask.id },
+      });
+    },
+  },
 };
 </script>
 
@@ -41,5 +52,13 @@ export default {
 .form-check-input {
   border-color: #ff344c;
   border-width: 2px;
+}
+#link {
+  color: #ff344c;
+  text-decoration: none;
+}
+.gumb {
+  background: none;
+  border: none;
 }
 </style>

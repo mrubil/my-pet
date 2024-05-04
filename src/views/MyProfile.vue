@@ -18,7 +18,7 @@
         <div class="col" id="SlikaProfila">
           <img
             class="rounded-circle object-fit-cover"
-            :src="myData.url ? myData.url : require('@/assets/profilna.jpg')"
+            :src="myData.url ? myData.url : require('@/assets/profilna.png')"
             height="70vw"
             width="70vw"
           />

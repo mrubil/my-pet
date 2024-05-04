@@ -104,6 +104,15 @@ const routes = [
       needsUser: true,
     },
   },
+  {
+    path: "/EditTask/:id",
+    name: "EditTask",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/EditTask.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
 ];
 
 const router = new VueRouter({
