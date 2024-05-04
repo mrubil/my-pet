@@ -10,6 +10,14 @@
         :dailyTask="dailyTask"
       />
     </div>
+    <div v-if="dailyTasks.length === 0">
+      <p style="color: white">Raspored za danas je prazan</p>
+      <img :src="require('@/assets/Raspored.png')" width="80vw" />
+      <br />
+      <br />
+      <router-link :to="'/NewTask'" id="plus">Dodaj novi zadatak</router-link>
+    </div>
+
     <Navigacija />
   </body>
 </template>
@@ -76,5 +84,9 @@ body {
 }
 #Zadaci {
   margin-bottom: 80px;
+}
+#plus {
+  text-decoration: none;
+  color: white;
 }
 </style>

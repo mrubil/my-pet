@@ -29,8 +29,16 @@
     </div>
     <div class="Zadaci">
       <p id="Naslov">Aktivnosti</p>
+      <div v-if="tasks.length === 0">
+        <p style="color: white">Raspored za danas je prazan</p>
+        <img :src="require('@/assets/Raspored.png')" width="50vw" />
+        <br />
+        <br />
+        <router-link :to="'/NewTask'" id="plus">Dodaj novi zadatak</router-link>
+      </div>
       <UpcomingTask v-for="task in tasks" :key="task.id" :task="task" />
     </div>
+
     <Navigacija />
   </body>
 </template>
