@@ -73,6 +73,7 @@ export default {
           datum: this.datum,
           vrijeme: this.vrijeme,
           datumVrijeme: timestamp,
+          checked: false,
         })
         .then((doc) => {
           console.log("Dodavanje zadatka...", doc);
