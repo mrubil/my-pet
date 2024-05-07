@@ -3,18 +3,61 @@
     <div class="Zaglavlje">
       <h2 style="font-weight: 600">Aktivnosti</h2>
     </div>
-
+    <div id="Tijelo">
+      <p id="Naslov">Nadolazeće aktivnosti</p>
+      <Tasks
+        v-for="task in tasks"
+        :key="task.id"
+        :task="task"
+        route="Aktivnosti"
+      />
+    </div>
     <Navigacija />
   </body>
 </template>
 
 <script>
 import Navigacija from "@/components/Navigacija.vue";
+import Tasks from "@/components/Tasks.vue";
+import store from "@/store";
+import { db } from "@/firebase";
 
 export default {
   name: "Aktivnosti",
   components: {
     Navigacija,
+    Tasks,
+  },
+  data() {
+    return {
+      tasks: [],
+    };
+  },
+  mounted() {
+    this.getMyTasks();
+  },
+  methods: {
+    getMyTasks() {
+      db.collection("Tasks")
+        .doc(store.currentUser)
+        .collection("MyTasks")
+        .where("vrstaAktivnosti", "==", "Aktivnost")
+        .orderBy("datumVrijeme")
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            this.tasks.push({
+              id: doc.id,
+              naziv: doc.data().naziv,
+              datum: doc.data().datum,
+              vrijeme: doc.data().vrijeme,
+            });
+          });
+        })
+        .catch((error) => {
+          console.error("Error prilikom dohvata", error);
+        });
+    },
   },
 };
 </script>
@@ -29,5 +72,12 @@ export default {
 }
 body {
   background: #ff344c;
+}
+#Naslov {
+  font-size: 14px;
+  color: white;
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 600;
 }
 </style>

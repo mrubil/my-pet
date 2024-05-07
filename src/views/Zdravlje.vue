@@ -5,6 +5,12 @@
     </div>
     <div id="Tijelo">
       <p id="Naslov">Nadolazeće aktivnosti</p>
+      <Tasks
+        v-for="task in tasks"
+        :key="task.id"
+        :task="task"
+        route="Zdravlje"
+      />
     </div>
     <Navigacija />
   </body>
@@ -12,13 +18,46 @@
 
 <script>
 import Navigacija from "@/components/Navigacija.vue";
-import UpcomingTask from "@/components/UpcomingTask.vue";
+import Tasks from "@/components/Tasks.vue";
+import store from "@/store";
+import { db } from "@/firebase";
 
 export default {
   name: "Zdravlje",
   components: {
     Navigacija,
-    UpcomingTask,
+    Tasks,
+  },
+  data() {
+    return {
+      tasks: [],
+    };
+  },
+  mounted() {
+    this.getMyTasks();
+  },
+  methods: {
+    getMyTasks() {
+      db.collection("Tasks")
+        .doc(store.currentUser)
+        .collection("MyTasks")
+        .where("vrstaAktivnosti", "==", "Zdravlje")
+        .orderBy("datumVrijeme")
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            this.tasks.push({
+              id: doc.id,
+              naziv: doc.data().naziv,
+              datum: doc.data().datum,
+              vrijeme: doc.data().vrijeme,
+            });
+          });
+        })
+        .catch((error) => {
+          console.error("Error prilikom dohvata", error);
+        });
+    },
   },
 };
 </script>
