@@ -20,11 +20,14 @@ export default {
 </script>
 
 <style>
-.ZAglavlje {
+.Zaglavlje {
   background: white;
   padding: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 5%;
+}
+body {
+  background: #ff344c;
 }
 </style>

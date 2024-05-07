@@ -19,8 +19,8 @@
           <img
             class="rounded-circle object-fit-cover"
             :src="myData.url ? myData.url : require('@/assets/profilna.png')"
-            height="70vw"
-            width="70vw"
+            height="80vw"
+            width="80vw"
           />
         </div>
         <div class="col"></div>
@@ -125,9 +125,6 @@ body {
 .Odjava {
   text-align: right;
   cursor: pointer;
-}
-#SlikaProfila {
-  padding: 5px;
 }
 
 #Ime {

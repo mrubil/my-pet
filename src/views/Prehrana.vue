@@ -27,4 +27,7 @@ export default {
   border-bottom-right-radius: 20px;
   margin-bottom: 5%;
 }
+body {
+  background: #ff344c;
+}
 </style>
