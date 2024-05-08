@@ -5,6 +5,12 @@
     </div>
     <div id="Tijelo">
       <p id="Naslov">Nadolazeće aktivnosti</p>
+      <div v-if="upcomingTasks.length === 0">
+        <router-link :to="'/NewTask'" id="plus"
+          ><img :src="require('@/assets/AddTaskWhite.png')" width="50vw"
+        /></router-link>
+        <p style="color: white"><br />Dodaj Aktivnost..</p>
+      </div>
       <Tasks
         v-for="task in upcomingTasks"
         :key="task.id"
@@ -40,7 +46,7 @@ export default {
     return {
       upcomingTasks: [],
       pastTasks: [],
-      danasnji_datum: new Date(),
+      danas: new Date(),
     };
   },
   mounted() {
@@ -49,7 +55,7 @@ export default {
   },
   methods: {
     getUpcomingTasks() {
-      const noviFormatDatuma = moment(this.danasnji_datum).format("YYYY-MM-DD");
+      const noviFormatDatuma = moment(this.danas).format("YYYY-MM-DD");
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")
@@ -73,7 +79,7 @@ export default {
         });
     },
     getPastTasks() {
-      const noviFormatDatuma = moment(this.danasnji_datum).format("YYYY-MM-DD");
+      const noviFormatDatuma = moment(this.danas).format("YYYY-MM-DD");
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")

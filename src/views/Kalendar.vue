@@ -104,15 +104,11 @@ export default {
       const jucer = new Date(this.danasnji_datum); //promijeni naziv u trenutni
       jucer.setDate(jucer.getDate() - 1);
       this.danasnji_datum = jucer;
-      this.tasks = []; //isprazni array
-      this.getMyTasks(); //pozovi ponovno funkciju
     },
     nextDate() {
       const sutra = new Date(this.danasnji_datum); //promijeni naziv u trenutni
       sutra.setDate(sutra.getDate() + 1);
       this.danasnji_datum = sutra;
-      this.tasks = [];
-      this.getMyTasks();
     },
   },
 };
