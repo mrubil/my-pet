@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import { db } from "@/firebase";
+import { db, storage } from "@/firebase";
 import store from "@/store";
 
 export default {
@@ -79,7 +79,7 @@ export default {
       vrsta: "",
       spol: "",
       dob: "",
-      Profilna: "",
+      Profilna: null,
     };
   },
   methods: {
@@ -135,6 +135,7 @@ body {
 }
 .Podaci {
   padding: 30px;
+  padding-top: 0%;
   color: white;
 }
 .button-done {
@@ -152,6 +153,14 @@ body {
 
 .form-select {
   border-radius: 20px;
+}
+.form-control {
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.form-group {
+  text-align: left;
+  margin-bottom: 0%;
 }
 .Upload {
   padding: 10px;
