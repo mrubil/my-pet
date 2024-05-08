@@ -1,5 +1,5 @@
 <template>
-  <div class="card mx-auto rounded-4" style="width: 90%">
+  <div class="card mx-auto rounded-4" style="width: 90%" id="kartica">
     <div class="card-body">
       <div class="row" style="font-size: 13px">
         <div class="col-5 align-self-center">{{ task.naziv }}</div>
