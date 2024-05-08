@@ -28,6 +28,7 @@ import Navigacija from "@/components/Navigacija.vue";
 import Tasks from "@/components/Tasks.vue";
 import store from "@/store";
 import { db } from "@/firebase";
+import moment from "moment";
 
 export default {
   name: "Aktivnosti",

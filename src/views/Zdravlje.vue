@@ -6,7 +6,14 @@
     <div id="Tijelo">
       <p id="Naslov">Nadolazeće aktivnosti</p>
       <Tasks
-        v-for="task in tasks"
+        v-for="task in upcomingTasks"
+        :key="task.id"
+        :task="task"
+        route="Zdravlje"
+      />
+      <p id="Naslov" style="margin-top: 10px">Prošle aktivnosti</p>
+      <Tasks
+        v-for="task in pastTasks"
         :key="task.id"
         :task="task"
         route="Zdravlje"
@@ -21,6 +28,7 @@ import Navigacija from "@/components/Navigacija.vue";
 import Tasks from "@/components/Tasks.vue";
 import store from "@/store";
 import { db } from "@/firebase";
+import moment from "moment";
 
 export default {
   name: "Zdravlje",
@@ -30,23 +38,52 @@ export default {
   },
   data() {
     return {
-      tasks: [],
+      upcomingTasks: [],
+      pastTasks: [],
+      danasnji_datum: new Date(),
     };
   },
   mounted() {
-    this.getMyTasks();
+    this.getUpcomingTasks();
+    this.getPastTasks();
   },
   methods: {
-    getMyTasks() {
+    getUpcomingTasks() {
+      const noviFormatDatuma = moment(this.danasnji_datum).format("YYYY-MM-DD");
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")
+
+        .where("datum", ">=", noviFormatDatuma)
         .where("vrstaAktivnosti", "==", "Zdravlje")
         .orderBy("datumVrijeme")
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            this.tasks.push({
+            this.upcomingTasks.push({
+              id: doc.id,
+              naziv: doc.data().naziv,
+              datum: doc.data().datum,
+              vrijeme: doc.data().vrijeme,
+            });
+          });
+        })
+        .catch((error) => {
+          console.error("Error prilikom dohvata", error);
+        });
+    },
+    getPastTasks() {
+      const noviFormatDatuma = moment(this.danasnji_datum).format("YYYY-MM-DD");
+      db.collection("Tasks")
+        .doc(store.currentUser)
+        .collection("MyTasks")
+        .where("datum", "<", noviFormatDatuma)
+        .where("vrstaAktivnosti", "==", "Zdravlje")
+        .orderBy("datumVrijeme")
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            this.pastTasks.push({
               id: doc.id,
               naziv: doc.data().naziv,
               datum: doc.data().datum,
