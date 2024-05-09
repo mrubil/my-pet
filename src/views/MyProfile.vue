@@ -9,26 +9,40 @@
 
       <div class="row">
         <div class="col"></div>
-
-        <div class="col d-flex align-items-begin justify-content-end">
-          <router-link to="/EditProfile"
-            ><img :src="require('@/assets/EditProfile.png')" width="20vw"
-          /></router-link>
-        </div>
+        <div class="col"></div>
         <div class="col" id="SlikaProfila">
-          <img
-            class="rounded-circle object-fit-cover"
-            :src="myData.url ? myData.url : require('@/assets/profilna.png')"
-            height="80vw"
-            width="80vw"
-          />
+          <div class="container-slike-profila">
+            <img
+              class="rounded-circle object-fit-cover"
+              :src="myData.url ? myData.url : require('@/assets/profilna.png')"
+              height="80vw"
+              width="80vw"
+            />
+            <div class="overlay">
+              <router-link to="/EditPhoto"
+                ><img :src="require('@/assets/white-camera.png')" width="40vw"
+              /></router-link>
+            </div>
+          </div>
         </div>
         <div class="col"></div>
         <div class="col"></div>
       </div>
 
-      <div id="Ime" style="font-weight: 600">
-        {{ myData.ime }}
+      <div
+        class="row justify-content-md-center"
+        id="Ime"
+        style="font-weight: 600"
+      >
+        <div class="col col-lg-2 px-0"></div>
+        <div class="col-auto px-0">
+          {{ myData.ime }}
+        </div>
+        <div class="col col-lg-2 px-0" style="text-align: left">
+          <router-link to="/EditProfile"
+            ><img :src="require('@/assets/edit-data-pencil.png')" width="15vw"
+          /></router-link>
+        </div>
       </div>
       <div class="mx-auto px-5" id="Informacije">
         <div class="row justify-content-md-center">
@@ -143,5 +157,26 @@ p.N {
   font-size: 14px;
   margin-top: 10px;
   font-weight: 600;
+}
+.container-slike-profila {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(86, 86, 86, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#SlikaProfila:hover .overlay {
+  opacity: 1;
 }
 </style>
