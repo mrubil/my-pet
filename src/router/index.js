@@ -113,6 +113,15 @@ const routes = [
       needsUser: true,
     },
   },
+  {
+    path: "/EditPhoto",
+    name: "EditPhoto",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/EditPhoto.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
 ];
 
 const router = new VueRouter({
