@@ -64,7 +64,17 @@
     <div class="Tijelo">
       <Mape />
 
-      <p class="N" style="text-align: left">Nadolazeće aktivnosti</p>
+      <p class="N" style="text-align: left">Napredak</p>
+      <div class="px-4" id="Grafovi">
+        <div class="row">
+          <div class="col-sm-6" style="width: 50%"><Statistika /></div>
+          <div class="col-sm-6" style="width: 50%"><Statistika /></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6" style="width: 50%"><Statistika /></div>
+          <div class="col-sm-6" style="width: 50%"><Statistika /></div>
+        </div>
+      </div>
     </div>
     <Navigacija />
   </body>
@@ -74,6 +84,7 @@
 import Mape from "@/components/Mape.vue";
 import UpcomingTask from "@/components/UpcomingTask.vue";
 import Navigacija from "@/components/Navigacija.vue";
+import Statistika from "@/components/Statistika.vue";
 import { firebase } from "@/firebase";
 import { db } from "@/firebase";
 import store from "@/store";
@@ -121,6 +132,7 @@ export default {
     Mape,
     UpcomingTask,
     Navigacija,
+    Statistika,
   },
 };
 </script>
@@ -178,5 +190,12 @@ p.N {
 
 #SlikaProfila:hover .overlay {
   opacity: 1;
+}
+#Grafovi {
+  background-color: white;
+  border-radius: 20px;
+  margin-inline: 20px;
+  padding: 5px;
+  margin-bottom: 80px;
 }
 </style>
