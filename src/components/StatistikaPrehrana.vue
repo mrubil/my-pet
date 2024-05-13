@@ -29,17 +29,17 @@ ChartJS.register(
 );
 
 export default {
-  name: "Statistika",
+  name: "StatistikaPrehrana",
   components: {
     Doughnut,
   },
   data() {
     return {
       data: {
-        labels: ["Ukupno"],
+        labels: ["Prehrana"],
         datasets: [
           {
-            backgroundColor: ["#fcba03", "#2b9bf7"],
+            backgroundColor: ["#ff344c", "#2b9bf7"],
             data: [],
           },
         ],
@@ -60,6 +60,7 @@ export default {
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")
+        .where("vrstaAktivnosti", "==", "Prehrana")
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -71,7 +72,7 @@ export default {
             }
           });
           const newData = {
-            labels: ["Ukupno"],
+            labels: ["Prehrana"],
             datasets: [
               {
                 data: [checkedCount, uncheckedCount],

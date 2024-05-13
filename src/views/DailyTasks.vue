@@ -3,6 +3,7 @@
     <div class="Zaglavlje">
       <h2 style="font-weight: 600">Današnje aktivnosti</h2>
     </div>
+    <div style="color: white">{{ formatirani_datum }}</div>
     <div id="Zadaci">
       <DnevniZadatak
         v-for="dailyTask in dailyTasks"
@@ -38,10 +39,16 @@ export default {
   data() {
     return {
       dailyTasks: [],
+      danasnji_datum: new Date(),
     };
   },
   mounted() {
     this.getDailyTasks();
+  },
+  computed: {
+    formatirani_datum() {
+      return this.danasnji_datum.toLocaleDateString();
+    },
   },
   methods: {
     getDailyTasks() {

@@ -36,10 +36,10 @@ export default {
   data() {
     return {
       data: {
-        labels: ["Ukupno"],
+        labels: ["Zdravlje"],
         datasets: [
           {
-            backgroundColor: ["#fcba03", "#2b9bf7"],
+            backgroundColor: ["#ff344c", "#2b9bf7"],
             data: [],
           },
         ],
@@ -60,6 +60,7 @@ export default {
       db.collection("Tasks")
         .doc(store.currentUser)
         .collection("MyTasks")
+        .where("vrstaAktivnosti", "==", "Zdravlje")
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -71,7 +72,7 @@ export default {
             }
           });
           const newData = {
-            labels: ["Ukupno"],
+            labels: ["Zdravlje"],
             datasets: [
               {
                 data: [checkedCount, uncheckedCount],

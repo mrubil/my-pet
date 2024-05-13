@@ -68,11 +68,13 @@
       <div class="px-4" id="Grafovi">
         <div class="row">
           <div class="col-sm-6" style="width: 50%"><Statistika /></div>
-          <div class="col-sm-6" style="width: 50%"><Statistika /></div>
+          <div class="col-sm-6" style="width: 50%"><StatistikaPrehrana /></div>
         </div>
         <div class="row">
-          <div class="col-sm-6" style="width: 50%"><Statistika /></div>
-          <div class="col-sm-6" style="width: 50%"><Statistika /></div>
+          <div class="col-sm-6" style="width: 50%"><StatistikaZdravlje /></div>
+          <div class="col-sm-6" style="width: 50%">
+            <StatistikaAktivnosti />
+          </div>
         </div>
       </div>
     </div>
@@ -85,6 +87,9 @@ import Mape from "@/components/Mape.vue";
 import UpcomingTask from "@/components/UpcomingTask.vue";
 import Navigacija from "@/components/Navigacija.vue";
 import Statistika from "@/components/Statistika.vue";
+import StatistikaPrehrana from "@/components/StatistikaPrehrana.vue";
+import StatistikaAktivnosti from "@/components/StatistikaAktivnosti.vue";
+import StatistikaZdravlje from "@/components/StatistikaZdravlje.vue";
 import { firebase } from "@/firebase";
 import { db } from "@/firebase";
 import store from "@/store";
@@ -133,6 +138,9 @@ export default {
     UpcomingTask,
     Navigacija,
     Statistika,
+    StatistikaPrehrana,
+    StatistikaAktivnosti,
+    StatistikaZdravlje,
   },
 };
 </script>
