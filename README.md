@@ -12,6 +12,8 @@ Funkcionalnosti aplikacije: mobilna aplikacija omogućuje vlasnicima ljubimaca p
 
 Link na javni prototip: https://www.figma.com/proto/y5UajXfN2K5Ge2JmC4n5aP/myPet?page-id=0%3A1&type=design&node-id=11-10&viewport=-2563%2C546%2C1&t=g5JNtA7vRUU3P60V-1&scaling=scale-down&starting-point-node-id=11%3A10&mode=design
 
+Javni link: https://my-pet-mr.netlify.app/
+
 ## Project setup
 
 ```
