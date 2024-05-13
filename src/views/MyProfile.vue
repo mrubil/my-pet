@@ -40,7 +40,7 @@
         </div>
         <div class="col col-lg-2 px-0" style="text-align: left">
           <router-link to="/EditProfile"
-            ><img :src="require('@/assets/edit-data-pencil.png')" width="15vw"
+            ><img :src="require('@/assets/edit-data.png')" width="15vw"
           /></router-link>
         </div>
       </div>
