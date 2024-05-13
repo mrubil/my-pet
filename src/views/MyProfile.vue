@@ -14,7 +14,7 @@
           <div class="container-slike-profila">
             <img
               class="rounded-circle object-fit-cover"
-              :src="myData.url ? myData.url : require('@/assets/profilna.png')"
+              :src="myData.url ? myData.url : defaultImageUrl"
               height="80vw"
               width="80vw"
             />
@@ -99,6 +99,8 @@ export default {
   data() {
     return {
       myData: {},
+      defaultImageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/my-pet-33770.appspot.com/o/slika-profila.jpg?alt=media&token=f7d391b3-8f55-4237-9db8-871a87ef177b",
     };
   },
 
