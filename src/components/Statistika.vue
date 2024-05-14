@@ -39,7 +39,7 @@ export default {
         labels: ["Ukupno"],
         datasets: [
           {
-            backgroundColor: ["#fcba03", "#2b9bf7"],
+            backgroundColor: ["#1191fa", "#c2c3c4"],
             data: [],
           },
         ],

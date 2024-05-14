@@ -39,7 +39,7 @@ export default {
         labels: ["Aktivnosti"],
         datasets: [
           {
-            backgroundColor: ["#ff344c", "#2b9bf7"],
+            backgroundColor: ["#ff344c", "#c2c3c4"],
             data: [],
           },
         ],
