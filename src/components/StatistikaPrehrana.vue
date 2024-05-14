@@ -71,15 +71,27 @@ export default {
               uncheckedCount++;
             }
           });
-          const newData = {
-            labels: ["Prehrana"],
-            datasets: [
-              {
-                data: [checkedCount, uncheckedCount],
-              },
-            ],
-          };
-          this.data = newData;
+          if (checkedCount === 0 && uncheckedCount === 0) {
+            const newData = {
+              labels: ["Prehrana"],
+              datasets: [
+                {
+                  data: [0, 1],
+                },
+              ],
+            };
+            this.data = newData;
+          } else {
+            const newData = {
+              labels: ["Prehrana"],
+              datasets: [
+                {
+                  data: [checkedCount, uncheckedCount],
+                },
+              ],
+            };
+            this.data = newData;
+          }
         })
         .catch((error) => {
           console.error("Error prilikom dohvata", error);
